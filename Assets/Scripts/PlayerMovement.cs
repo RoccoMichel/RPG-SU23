@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool freeze;
     private PlayerBase playerStats;
     private CharacterController controller;
     private InputAction moveAction;
@@ -23,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (freeze) return;
+        if (!playerStats.canMove) return;
 
         moveValue = moveAction.ReadValue<Vector2>();
         Vector3 move = playerStats.speed * (transform.right * moveValue.x + transform.forward * moveValue.y);

@@ -6,7 +6,12 @@ public class QuestGiver : Entity
     public CanvasManager canvasManager;
     public Transform cameraPosition;
     [TextArea] public string[] dialog;
-    private CameraController cameraController;
+    private PlayerBase player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBase>();
+    }
 
     private void Update()
     {
@@ -19,10 +24,9 @@ public class QuestGiver : Entity
     void StartQuest()
     {
         questActive = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().freeze = true;
-        cameraController = Camera.main.GetComponent<CameraController>();
-        cameraController.locked = true;
-        cameraController.gameObject.transform.SetPositionAndRotation(cameraPosition.position, cameraPosition.rotation);
+        player.Freeze();
+        player.cameraController.locked = true;
+        player.cameraController.gameObject.transform.SetPositionAndRotation(cameraPosition.position, cameraPosition.rotation);
         canvasManager.NewDialog(dialog, identity);
         canvasManager.AssignQuestGiver(this);
     }
@@ -30,8 +34,7 @@ public class QuestGiver : Entity
     public void Finished()
     {
         questActive = false;
-        cameraController.locked = false;
-        cameraController.ResetRotation();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().freeze = false;
+        player.Unfreeze();
+        player.cameraController.ResetRotation();
     }
 }
