@@ -55,32 +55,32 @@ public class CanvasManager : MonoBehaviour
         return newMap;
     }
 
-    // Quest Related
-    public void AssignQuestGiver(QuestGiver questGiver)
-    {
-        dialog.questGiver = questGiver;
-    }
-
     // Dialog Related
-    public void NewDialog(string[] contents)
+    public void NewMessage(string[] contents)
     {
-        if (dialog == null) dialog = InstantiateDialog();
+        if (dialog == null) dialog = InstantiateDialogPrefab();
         if (!dialog.gameObject.activeSelf) dialog.gameObject.SetActive(true);
-        dialog.NewDialog(contents);
+        dialog.NewMessage(contents);
     }
-    public void NewDialog(string[] contents, string title)
+    public void NewMessage(string[] contents, string speaker)
     {
-        if (dialog == null) dialog = InstantiateDialog();
+        if (dialog == null) dialog = InstantiateDialogPrefab();
         if (!dialog.gameObject.activeSelf) dialog.gameObject.SetActive(true);
-        dialog.NewDialog(contents, title);
+        dialog.NewMessage(contents, speaker);
     }
-    public void NewDialog(string[] contents, string title, Sprite image)
+    public void NewMessage(string[] contents, string speaker, Sprite image)
     {
-        if (dialog == null) dialog = InstantiateDialog();
+        if (dialog == null) dialog = InstantiateDialogPrefab();
         if (!dialog.gameObject.activeSelf) dialog.gameObject.SetActive(true);
-        dialog.NewDialog(contents, title, image);
+        dialog.NewMessage(contents, speaker, image);
     }
-    private DialogManager InstantiateDialog()
+    public void NewDialog(Dialog data)
+    {
+        if (dialog == null) dialog = InstantiateDialogPrefab();
+        if (!dialog.gameObject.activeSelf) dialog.gameObject.SetActive(true);
+        dialog.NewDialog(data);
+    }
+    private DialogManager InstantiateDialogPrefab()
     {
         DialogManager newDialog = Instantiate(Resources.Load("UI/DialogSystem"), gameObject.transform).GetComponent<DialogManager>();
         newDialog.canvasManager = this;

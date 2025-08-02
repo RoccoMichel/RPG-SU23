@@ -15,11 +15,33 @@ MonoBehaviour:
   skippable: 0
   conversation:
   - speaker: {fileID: 0}
-    title: 
+    title: Little Gimbo
     lines:
-    - 
+    - Yo, you there!
   - speaker: {fileID: 0}
-    title: 
+    title: YOU
     lines:
-    - 
-    - 
+    - me?
+    - what's up little guy!
+  - speaker: {fileID: 0}
+    title: Little Gimbo
+    lines:
+    - 'Watch that mouth of yours!
+
+      I am NOT little!'
+  - speaker: {fileID: 0}
+    title: YOU
+    lines:
+    - sure what ever...
+  - speaker: {fileID: 0}
+    title: Little Gimbo
+    lines:
+    - ...
+  - speaker: {fileID: 0}
+    title: YOU
+    lines:
+    - so what is it you called me here for?
+  - speaker: {fileID: 0}
+    title: Little Gimbo
+    lines:
+    - Leave me alone, you!

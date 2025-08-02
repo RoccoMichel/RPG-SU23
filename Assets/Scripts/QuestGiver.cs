@@ -2,39 +2,27 @@ using UnityEngine;
 
 public class QuestGiver : Entity
 {
-    [HideInInspector] public bool questActive;
-    public CanvasManager canvasManager;
-    public Transform cameraPosition;
-    [TextArea] public string[] dialog;
-    private PlayerBase player;
+    [Header("Quest Giver Attributes")]
+    public Quest Quest;
+    private GameDirector director;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBase>();
+        director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && !questActive)
-        {
-            StartQuest();
-        }
+        if (Input.GetKeyDown(KeyCode.E)) StartQuest();
     }
 
     void StartQuest()
     {
-        questActive = true;
-        player.Freeze();
-        player.cameraController.locked = true;
-        player.cameraController.gameObject.transform.SetPositionAndRotation(cameraPosition.position, cameraPosition.rotation);
-        canvasManager.NewDialog(dialog, identity);
-        canvasManager.AssignQuestGiver(this);
-    }
-
-    public void Finished()
-    {
-        questActive = false;
-        player.Unfreeze();
-        player.cameraController.ResetRotation();
+        if (Quest == null)
+        {
+            Debug.LogWarning($"{identity} ({name}) has no quest to give!");
+            return;
+        }
+        director.StartNewQuest(Quest);
     }
 }

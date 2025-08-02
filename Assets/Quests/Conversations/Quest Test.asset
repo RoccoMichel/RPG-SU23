@@ -17,7 +17,3 @@ MonoBehaviour:
   elements:
   - type: 0
     data: {fileID: 11400000, guid: 91b15c2c5f8e9954f8b93d0fc55a82ad, type: 2}
-  - type: 1
-    data: {fileID: 0}
-  - type: 0
-    data: {fileID: 0}

@@ -833,17 +833,7 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   immortal: 1
-  questActive: 0
-  canvasManager: {fileID: 1157353385}
-  cameraPosition: {fileID: 1259206436}
-  dialog:
-  - Hello Travevalrras
-  - balblabla
-  - guguguglahgalalala
-  - 'Good Luck,
-
-    and don''t disappoint'
-  - OR ELSE
+  Quest: {fileID: 11400000, guid: 4eeae55d4b5650d4caeba187752a92d1, type: 2}
 --- !u!4 &264568533
 Transform:
   m_ObjectHideFlags: 0
@@ -1677,17 +1667,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156236327}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1157353385 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5378397276261571276, guid: 2ddc83d481fe8ed46bde93c727214a90, type: 3}
-  m_PrefabInstance: {fileID: 1965669498407859455}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8628162ae0ee00647aefe6201a2290f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1195484208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670334226}
   - component: {fileID: 1670334225}
+  - component: {fileID: 1670334227}
   - component: {fileID: 1670334224}
   - component: {fileID: 1670334223}
   - component: {fileID: 1670334222}
@@ -2055,6 +2035,28 @@ Transform:
   - {fileID: 400093367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &1670334227
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670334221}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1709504159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b138eaf07765d24798aade2ea89ce18, type: 3}
@@ -2354,7 +2356,7 @@ GameObject:
   - component: {fileID: 2018627089}
   m_Layer: 0
   m_Name: GAME DIRECTOR
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2371,7 +2373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf1f2b5c6eda0942aaf5ffa88974b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeQuest: {fileID: 0}
+  canvasManager: {fileID: 0}
 --- !u!4 &2018627090
 Transform:
   m_ObjectHideFlags: 0
