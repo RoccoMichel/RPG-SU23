@@ -1,6 +1,9 @@
 using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Collections;
+using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class CanvasManager : MonoBehaviour
     private InputAction mapAction;
     private InputAction inventoryAction;
     private PlayerBase player;
+    [SerializeField] private List<string> alertQueue = new();
 
     private void Start()
     {
@@ -30,7 +34,7 @@ public class CanvasManager : MonoBehaviour
         if (inventory == null) inventory = InstantiateInventory();
         inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
 
-        player.cameraController.locked = inventory.gameObject.activeSelf;
+        player.CameraController.locked = inventory.gameObject.activeSelf;
     }
     private Inventory InstantiateInventory()
     {
@@ -43,16 +47,46 @@ public class CanvasManager : MonoBehaviour
     public void ToggleMap()
     {
         if (map == null) map = InstantiateMap();
-        map.gameObject.SetActive(!map.gameObject.activeSelf);
 
-        if (player.frozen) player.Unfreeze();
-        else player.Freeze();
+        map.gameObject.SetActive(!map.gameObject.activeSelf);
+        player.Freeze(map.gameObject.activeSelf);
     }
     private Map InstantiateMap()
     {
         Map newMap = Instantiate(Resources.Load("UI/Map"), gameObject.transform).GetComponent<Map>();
         newMap.gameObject.SetActive(false);
         return newMap;
+    }
+
+    // Alert Related
+    public void NewAlert(string displayMessage) // ADD: different alert styles
+    {
+        alertQueue.Add(displayMessage);
+        if (alertQueue.Count <= 1) StartCoroutine(Alert());
+    }
+
+    private IEnumerator Alert()
+    {
+        float displayDurationSeconds = 1f;
+        float fadeOutDurationSeconds = 1.5f;
+        TMP_Text alertDisplay = Instantiate(Resources.Load("UI/Alert"), gameObject.transform).GetComponent<TMP_Text>();
+
+        yield return new WaitForEndOfFrame();
+
+        while (alertQueue.Count > 0)
+        {
+            alertDisplay.text = alertQueue[0];
+            alertDisplay.CrossFadeAlpha(1, 0, true);
+
+            yield return new WaitForSeconds(displayDurationSeconds);
+            alertDisplay.CrossFadeAlpha(0, Mathf.Clamp(fadeOutDurationSeconds, 1, float.MaxValue), true);
+
+            yield return new WaitForSeconds(fadeOutDurationSeconds);
+            alertQueue.RemoveAt(0);
+        }
+
+        Destroy(alertDisplay.gameObject);
+        yield return null;
     }
 
     // Dialog Related

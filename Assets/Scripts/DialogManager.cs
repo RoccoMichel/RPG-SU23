@@ -22,7 +22,7 @@ public class DialogManager : MonoBehaviour
     public TMP_Text titleDisplay;
     public Image imageDisplay;
     private Dialog data;
-    private InputAction nextAction;
+    private InputAction interactAction;
     [HideInInspector] public CanvasManager canvasManager;
 
     private int lineIndex;
@@ -30,7 +30,8 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        nextAction = InputSystem.actions.FindAction("Attack");
+        interactAction = InputSystem.actions.FindAction("Interact");
+
         SwitchModes(mode);
     }
 
@@ -40,7 +41,7 @@ public class DialogManager : MonoBehaviour
 
         dialogDisplay.text = lines[Mathf.Clamp(lineIndex, 0, lines.Count - 1)];
 
-        if (nextAction.WasPressedThisFrame()) NextLine();
+        if (interactAction.WasPressedThisFrame()) NextLine();
 
         if (lineIndex >= lines.Count) FinishConversation();
     }
@@ -100,7 +101,12 @@ public class DialogManager : MonoBehaviour
     {
         lineIndex = 0;
         conversationIndex++;
-        if (conversationIndex >= data.conversation.Count) FinishConversation();
+
+        if (conversationIndex >= data.conversation.Count)
+        {
+            FinishConversation();
+            return;
+        }
         Dialog.Conversation currentConversation = data.conversation[conversationIndex];
 
         // Call correct Message format based on what is assigned in data
@@ -120,7 +126,8 @@ public class DialogManager : MonoBehaviour
     protected virtual void FinishConversation()
     {
         data = null;
-        // call quest to go to next element
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>().QuestAdvance();
+
         gameObject.SetActive(false);
     }
 

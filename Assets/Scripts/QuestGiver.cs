@@ -1,28 +1,61 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class QuestGiver : Entity
 {
     [Header("Quest Giver Attributes")]
-    public Quest Quest;
+    [SerializeField] private int index;
+    public Quest[] Quests;
+    public bool completed;
+    private bool interactable;
+
     private GameDirector director;
+    private InputAction interactAction;
 
     private void Start()
     {
+        interactAction = InputSystem.actions.FindAction("Interact");
         director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) StartQuest();
+        if (interactAction.WasPressedThisFrame() && interactable)
+        {
+            if (completed)
+            {
+                director.canvasManager.NewMessage(new string[] { "You have already completed all my quests!", });
+                return;
+            }
+            else if (director.InQuest()) return;
+
+            QuestStart();
+        }
     }
 
-    void StartQuest()
+    private void QuestStart()
     {
-        if (Quest == null)
+        if (Quests == null)
         {
             Debug.LogWarning($"{identity} ({name}) has no quest to give!");
             return;
         }
-        director.StartNewQuest(Quest);
+        director.QuestStart(Quests[index], this);
+    }
+
+    public void QuestComplete()
+    {
+        index++;
+        if (index >= Quests.Count()) completed = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) interactable = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player")) interactable = false;
     }
 }

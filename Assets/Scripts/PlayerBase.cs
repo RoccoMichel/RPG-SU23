@@ -9,40 +9,33 @@ public class PlayerBase : Entity
     public float speed = 3;
     public bool canAttack = true;
     public bool canMove = true;
-    public bool frozen { get; private set; }
 
     private InputAction attackAction;
-    [HideInInspector] public CameraController cameraController { get; private set; }
+    [HideInInspector] public CameraController CameraController { get; private set; }
 
     private void Start()
     {
         attackAction = InputSystem.actions.FindAction("Attack");
-        cameraController = Camera.main.GetComponent<CameraController>();
+        CameraController = Camera.main.GetComponent<CameraController>();
     }
     private void Update()
     {
-        if (attackAction.WasPressedThisFrame() && canAttack) Attack();
+        if (attackAction.WasPressedThisFrame()) Attack();
     }
 
     protected virtual void Attack()
     {
-        Debug.Log("Player Attack!");
+        if (!canAttack) return;
+
+        // logic
     }
 
-    public void Freeze()
+    /// <param name="state">True: Freeze | False: Unfreeze</param>
+    public void Freeze(bool state)
     {
-        canAttack = false;
-        canMove = false;
-        cameraController.locked = true;
-        frozen = true;
-    }
-
-    public void Unfreeze()
-    {
-        canAttack = true;
-        canMove = true;
-        cameraController.locked = false;
-        frozen = false;
+        canAttack = !state;
+        canMove = !state;
+        CameraController.locked = state;
     }
 
     public override void Heal(float amount)

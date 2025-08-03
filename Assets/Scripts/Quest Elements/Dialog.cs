@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Dialog", menuName = "Scriptable Objects/Dialog")]
 public class Dialog : ScriptableObject
 {
-    public bool skippable;
+    public bool freezePlayer = true;
     public List<Conversation> conversation;
 
     [System.Serializable]

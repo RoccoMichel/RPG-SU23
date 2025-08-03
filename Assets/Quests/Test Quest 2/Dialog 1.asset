@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776a0468c3ea54446a58c5c1397849ec, type: 3}
+  m_Name: Dialog 1
+  m_EditorClassIdentifier: 
+  freezePlayer: 1
+  conversation:
+  - speaker: {fileID: 0}
+    title: Long distance lover #1
+    lines:
+    - I haven't spoken to my boyfriend in ages...
+    - please ask him how he is doing
+  - speaker: {fileID: 0}
+    title: YOU
+    lines:
+    - I'll see what I can do!
