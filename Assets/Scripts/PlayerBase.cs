@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerBase : Entity
 {
@@ -9,12 +10,15 @@ public class PlayerBase : Entity
     public float speed = 3;
     public bool canAttack = true;
     public bool canMove = true;
-
     private InputAction attackAction;
     [HideInInspector] public CameraController CameraController { get; private set; }
 
+    [Header("Inventory")]
+    public PlayerInventory inventory;
+
     private void Start()
     {
+        inventory = GetComponent<PlayerInventory>();
         attackAction = InputSystem.actions.FindAction("Attack");
         CameraController = Camera.main.GetComponent<CameraController>();
     }

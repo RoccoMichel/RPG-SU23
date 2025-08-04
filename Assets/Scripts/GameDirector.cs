@@ -12,7 +12,8 @@ public class GameDirector : MonoBehaviour
 
     [Header("References")]
     public CanvasManager canvasManager;
-    private PlayerBase player;
+    public Statistics statistics;
+    public PlayerBase player;
 
     public bool InQuest() { return ActiveQuest != null; }
 
@@ -26,6 +27,8 @@ public class GameDirector : MonoBehaviour
             try { canvasManager = FindFirstObjectByType<CanvasManager>().GetComponent<CanvasManager>(); }
             catch { Debug.LogError("No CanvasManager active in Scene!"); Debug.Break(); }
         }
+
+        statistics = GetComponent<Statistics>();
     }
 
     private void Update()

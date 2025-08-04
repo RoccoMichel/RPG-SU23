@@ -1,2 +1,6 @@
 Make sure all UI is disabled and not toggleable while in specific moments (i.e. dialog, cutscenes)
 Creature AI behaviour
+
+Inventory
+Fetch Quest Element
+Slaughter Quest Element
