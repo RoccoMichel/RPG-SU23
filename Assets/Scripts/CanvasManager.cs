@@ -10,10 +10,12 @@ public class CanvasManager : MonoBehaviour
     [HideInInspector] public DialogManager dialog;
     [HideInInspector] public Inventory inventory;
     [HideInInspector] public Map map;
+    [HideInInspector] public GameObject cursorBoundUI;
+    [HideInInspector] public List<string> alertQueue = new();
+
     private InputAction mapAction;
     private InputAction inventoryAction;
     private PlayerBase player;
-    [SerializeField] private List<string> alertQueue = new();
 
     private void Start()
     {
@@ -87,6 +89,20 @@ public class CanvasManager : MonoBehaviour
 
         Destroy(alertDisplay.gameObject);
         yield return null;
+    }
+
+    // CursorBoundUIElement Related
+    public void NewCursorBound()
+    {
+        if (cursorBoundUI != null) Destroy(cursorBoundUI);
+
+        Instantiate(Resources.Load("UI/CursorBoundUI"), gameObject.transform);
+    }
+    public void NewTooltip(string title, string description)
+    {
+        if (cursorBoundUI != null) Destroy(cursorBoundUI);
+
+        Instantiate(Resources.Load("UI/Tooltip"), gameObject.transform).GetComponent<Tooltip>().GenerateTooltip(title, description);
     }
 
     // Dialog Related

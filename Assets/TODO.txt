@@ -4,3 +4,6 @@ Creature AI behaviour
 Inventory
 Fetch Quest Element
 Slaughter Quest Element
+CursorBoundUI can sometimes be directly under the cursor for a frame or more resulting in problems
+	like constantly triggering an pointer even on the Item Slot beneth
+Tooltip should disappear when inventory get toggled off

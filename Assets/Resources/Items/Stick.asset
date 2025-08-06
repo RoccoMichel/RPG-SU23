@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 196a3d32d69007c4e8e48ed40e5b980e, type: 3}
-  m_Name: Rock
+  m_Name: Stick
   m_EditorClassIdentifier: 
-  itemName: Rock
-  description: As hard as a rock can get.
-  stackSize: 100
-  icon: {fileID: 21300000, guid: dc4df283b83ddfb48b6b1d2769534187, type: 3}
+  itemName: Wooden Stick
+  description: Pretty strong
+  stackSize: 50
+  icon: {fileID: 21300000, guid: 2ae4db714508ba4448e2d1d8c39fa26a, type: 3}
   type: 0
   modifier: 0

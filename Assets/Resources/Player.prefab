@@ -220,6 +220,7 @@ MonoBehaviour:
   speed: 5
   canAttack: 1
   canMove: 1
+  inventory: {fileID: 7262896629385057251}
 --- !u!114 &7262896629385057251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55af7699da1fc564facbeca6344a8455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Items: []
 --- !u!114 &1515293879535752956
 MonoBehaviour:
   m_ObjectHideFlags: 0
