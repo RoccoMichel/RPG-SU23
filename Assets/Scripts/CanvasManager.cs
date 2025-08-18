@@ -34,14 +34,13 @@ public class CanvasManager : MonoBehaviour
     public void ToggleInventory()
     {
         if (inventory == null) inventory = InstantiateInventory();
-        inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
+        else inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
 
         player.CameraController.locked = inventory.gameObject.activeSelf;
     }
     private Inventory InstantiateInventory()
     {
         Inventory newInventory = Instantiate(Resources.Load("UI/Inventory"), gameObject.transform).GetComponent<Inventory>();
-        newInventory.gameObject.SetActive(false);
         return newInventory;
     }
 

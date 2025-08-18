@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,9 +12,23 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         playerInventory = director.player.inventory;
+
         foreach (ItemSlot slot in gameObject.GetComponentsInChildren<ItemSlot>())
             inventorySlots.Add(slot);
 
+        RefreshInventory();
+    }
+
+    private void OnEnable()
+    {
+        if (director == null) director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
+
+        if (playerStats != null) ReloadStatistics();
+        if (playerInventory != null) RefreshInventory();
+    }
+
+    public void RefreshInventory()
+    {
         for (int i = 0; i < playerInventory.Items.Count; i++)
         {
             if (i >= inventorySlots.Count) break;
@@ -23,11 +37,12 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void RefreshInventory(int[] indexes)
     {
-        if (director == null) director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
-
-        if (playerStats != null) ReloadStatistics();
+        foreach(int i in indexes)
+        {
+            inventorySlots[i].Set(playerInventory.Items[i], true);
+        }
     }
 
     public void ReloadStatistics()
