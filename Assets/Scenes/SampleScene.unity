@@ -1129,7 +1129,7 @@ Transform:
   m_GameObject: {fileID: 400093366}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.12796488, w: 0.99177873}
-  m_LocalPosition: {x: 0.482, y: 0.85, z: 0.337}
+  m_LocalPosition: {x: 0.391, y: 0.874, z: 0.337}
   m_LocalScale: {x: 0.52538, y: 1.2251, z: 0.097953}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1656,7 +1656,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: c9e26bbecb8d3ff4193a4adad16f63a6, type: 2}
 --- !u!4 &832575519
 Transform:
   m_ObjectHideFlags: 0
@@ -2359,6 +2359,7 @@ MonoBehaviour:
   strength: 1
   defense: 0
   speed: 4
+  lootTable: []
 --- !u!4 &1670334226
 Transform:
   m_ObjectHideFlags: 0
@@ -2985,9 +2986,9 @@ SceneRoots:
   - {fileID: 1860872740}
   - {fileID: 1965669498407859455}
   - {fileID: 184838303}
+  - {fileID: 1232616677653136381}
   - {fileID: 953272515892681520}
   - {fileID: 62435531}
-  - {fileID: 1232616677653136381}
   - {fileID: 1670334226}
   - {fileID: 2016435285}
   - {fileID: 2126649020}

@@ -7,7 +7,7 @@ public class Quest : ScriptableObject
     public string questName = "Unnamed Quest";
     [TextArea] public string description;
     public List<QuestElement> elements;
-    public enum ElementsTypes { Dialog, Travel, Fetch };
+    public enum ElementsTypes { Dialog, Travel, Fetch, Slaughter };
 
     [System.Serializable]
     public struct QuestElement

@@ -51,14 +51,21 @@ public class GameDirector : MonoBehaviour
             case Quest.ElementsTypes.Travel:
                 Travel dataTravel = ActiveQuest.elements[questStage].data as Travel;
                 Instantiate(Resources.Load("Quest Elements/Travel Route"), new Vector3(0, -1000, 0), Quaternion.identity).GetComponent<TravelRoute>().SetTravelRoute(dataTravel, this);
-                if (dataTravel.objective != string.Empty) canvasManager.NewAlert("New Objective:\n" + dataTravel.objective);
+                if (dataTravel.objective != string.Empty) canvasManager.SetObjective(dataTravel.objective, true);
 
                 break;
 
             case Quest.ElementsTypes.Fetch:
                 Fetch dataFetch = ActiveQuest.elements[questStage].data as Fetch;
 
-                if (dataFetch.objective != string.Empty) canvasManager.NewAlert("New Objective:\n" + dataFetch.objective);
+                if (dataFetch.objective != string.Empty) canvasManager.SetObjective(dataFetch.objective, true);
+
+                break;
+
+            case Quest.ElementsTypes.Slaughter:
+                Slaughter dataSlaughter = ActiveQuest.elements[questStage].data as Slaughter;
+
+                if (dataSlaughter.objective != string.Empty) canvasManager.SetObjective(dataSlaughter.objective, true);
 
                 break;
         }

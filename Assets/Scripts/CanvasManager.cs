@@ -9,6 +9,7 @@ public class CanvasManager : MonoBehaviour
 {
     [HideInInspector] public DialogManager dialog;
     [HideInInspector] public Inventory inventory;
+    [HideInInspector] public TMP_Text objectiveDisplay;
     [HideInInspector] public Map map;
     [HideInInspector] public GameObject cursorBoundUI;
     [HideInInspector] public List<string> alertQueue = new();
@@ -28,6 +29,33 @@ public class CanvasManager : MonoBehaviour
     {
         if (mapAction.WasPressedThisFrame()) ToggleMap();
         if (inventoryAction.WasPressedThisFrame()) ToggleInventory();
+    }
+
+    // Objective Display Related
+    public void SetObjective(string name)
+    {
+        if (objectiveDisplay == null) objectiveDisplay = InstantiateObjectiveDisplay();
+        objectiveDisplay.text = "Current Objective:\n" + name;
+    }
+
+    public void SetObjective(string name, bool highlightUI)
+    {
+        SetObjective(name);
+        if (!highlightUI) return;
+
+        Destroy(Instantiate(Resources.Load("UI/Objective Highlight"), objectiveDisplay.transform), 1f);
+    }
+
+    public void ClearObjective()
+    {
+        if (objectiveDisplay == null) return;
+
+        objectiveDisplay.text = string.Empty;
+    }
+
+    private TMP_Text InstantiateObjectiveDisplay()
+    {
+        return Instantiate(Resources.Load("UI/Objective Display"), transform).GetComponent<TMP_Text>();
     }
 
     // Inventory Related
@@ -60,7 +88,7 @@ public class CanvasManager : MonoBehaviour
     }
 
     // Alert Related
-    public void NewAlert(string displayMessage) // ADD: different alert styles
+    public void NewAlert(string displayMessage) // extra styles?
     {
         alertQueue.Add(displayMessage);
         if (alertQueue.Count <= 1) StartCoroutine(Alert());
@@ -131,7 +159,7 @@ public class CanvasManager : MonoBehaviour
     }
     private DialogManager InstantiateDialogPrefab()
     {
-        DialogManager newDialog = Instantiate(Resources.Load("UI/DialogSystem"), gameObject.transform).GetComponent<DialogManager>();
+        DialogManager newDialog = Instantiate(Resources.Load("UI/Dialog System"), gameObject.transform).GetComponent<DialogManager>();
         newDialog.canvasManager = this;
         return newDialog;
     }
