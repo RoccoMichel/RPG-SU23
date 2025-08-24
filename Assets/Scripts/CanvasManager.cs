@@ -13,6 +13,7 @@ public class CanvasManager : MonoBehaviour
     [HideInInspector] public Map map;
     [HideInInspector] public GameObject cursorBoundUI;
     [HideInInspector] public List<string> alertQueue = new();
+    /*[HideInInspector]*/ public List<GameObject> notificationsQueue = new();
 
     private InputAction mapAction;
     private InputAction inventoryAction;
@@ -87,14 +88,66 @@ public class CanvasManager : MonoBehaviour
         return newMap;
     }
 
-    // Alert Related
-    public void NewAlert(string displayMessage) // extra styles?
+    // Notification Related
+    public void Notification(string message)
     {
-        alertQueue.Add(displayMessage);
-        if (alertQueue.Count <= 1) StartCoroutine(Alert());
+        GameObject newNotification = Instantiate((GameObject)Resources.Load("UI/Notification"), transform);
+        newNotification.GetComponent<TMP_Text>().text = message;
+        notificationsQueue.Add(newNotification);
+
+        if (notificationsQueue.Count <= 1) StartCoroutine(Notifications());
     }
 
-    private IEnumerator Alert()
+    public void ClearNotifications()
+    {
+        foreach (GameObject notifications in notificationsQueue) { Destroy(notifications); }
+        notificationsQueue.Clear();
+    }
+
+    private IEnumerator Notifications()
+    {
+        int maxNotifications = 4;
+        int distance = 60;
+        // lifetime is on prefab component
+
+        yield return new WaitForEndOfFrame();
+
+        while (notificationsQueue.Count > 0)
+        {
+            for (int i = 0; i < notificationsQueue.Count; i++)
+            {
+                RectTransform notification;
+                try { notification = notificationsQueue[i].GetComponent<RectTransform>(); }
+                catch
+                {
+                    notificationsQueue.RemoveAt(i);
+                    if (notificationsQueue.Count == 0) break;
+                    else i--;
+
+                    continue;
+                }
+
+                Vector2 targetPosition;
+                targetPosition.x = i >= maxNotifications ? 500 : 0;
+                targetPosition.y = i * distance;
+
+                notification.anchoredPosition = targetPosition;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield return null;
+    }
+
+    // Alert Related
+    public void NewAlert(string message) // extra styles?
+    {
+        alertQueue.Add(message);
+        if (alertQueue.Count <= 1) StartCoroutine(Alerts());
+    }
+
+    private IEnumerator Alerts()
     {
         float displayDurationSeconds = 1f;
         float fadeOutDurationSeconds = 1.5f;

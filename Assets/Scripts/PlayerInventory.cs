@@ -92,6 +92,13 @@ public class PlayerInventory : MonoBehaviour
         catch{ }
     }
 
+    public void AddItem(Item item, int amount, bool notification)
+    {
+        AddItem(item, amount);
+
+        if (notification) Director.canvasManager.Notification($"+ {amount} {item.itemName}");
+    }
+
     //public void RemoveItem(Item item, int amount)
     //{
 

@@ -22,18 +22,13 @@ public class Creature : Entity
     public struct LootItem
     {
         public Item item; // or use PickUp class so it has to physically be picked 
-        private float dropRate;
-        public float DropRate
-        {
-            readonly get { return dropRate; }
-            set { value = Mathf.Clamp01(value); dropRate = value; }
-        }
+        [Range(0f, 1f)] public float dropRate;
         public Vector2 minMaxAmount;
 
-        public int RollDrop()
+        public readonly int RollDrop()
         {
             float roll = Random.Range(0, 1f);
-            if (roll < DropRate) return Mathf.CeilToInt(Random.Range(minMaxAmount.x, minMaxAmount.y));
+            if (roll < dropRate) return Mathf.CeilToInt(Random.Range(minMaxAmount.x, minMaxAmount.y));
 
             return 0; // unlucky
         }

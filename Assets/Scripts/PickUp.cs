@@ -23,7 +23,7 @@ public class PickUp : MonoBehaviour
 
     public virtual void Collect(bool destroy)
     {
-        director.player.inventory.AddItem(type, amount);
+        director.player.inventory.AddItem(type, amount, true);
 
         if (destroy) Destroy(gameObject);
     }
