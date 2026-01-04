@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Slaughter", menuName = "Scriptable Objects/Slaughter")]
+[CreateAssetMenu(fileName = "New Slaughter", menuName = "Quests/Slaughter Element")]
 public class Slaughter : ScriptableObject
 {
     public string objective = "Kill the targets!";

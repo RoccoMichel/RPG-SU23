@@ -4,5 +4,6 @@ Creature AI behaviour
 Add different alert styles (CanvasManager ln. 91)
 Fetch Quest Element
 Slaughter Quest Element
+Quest Giver Animations
 CursorBoundUI can sometimes be directly under the cursor for a frame or more resulting in problems
 	like constantly triggering an pointer even on the Item Slot beneth

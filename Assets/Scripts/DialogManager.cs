@@ -110,14 +110,14 @@ public class DialogManager : MonoBehaviour
         Dialog.Conversation currentConversation = data.conversation[conversationIndex];
 
         // Call correct Message format based on what is assigned in data
-        if (currentConversation.speaker != null && currentConversation.title != string.Empty)
-            NewMessage(currentConversation.lines.ToArray(), currentConversation.title, currentConversation.speaker);
+        if (currentConversation.speakerPortrait != null && currentConversation.title != string.Empty)
+            NewMessage(currentConversation.lines.ToArray(), currentConversation.title, currentConversation.speakerPortrait);
 
         else if (currentConversation.title != string.Empty)
             NewMessage(currentConversation.lines.ToArray(), currentConversation.title);
 
-        else if (currentConversation.speaker != null)
-            NewMessage(currentConversation.lines.ToArray(), currentConversation.speaker);
+        else if (currentConversation.speakerPortrait != null)
+            NewMessage(currentConversation.lines.ToArray(), currentConversation.speakerPortrait);
 
         else
             NewMessage(currentConversation.lines.ToArray());

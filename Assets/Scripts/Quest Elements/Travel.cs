@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Travel", menuName = "Scriptable Objects/Travel")]
+[CreateAssetMenu(fileName = "New Travel", menuName = "Quests/Travel Element")]
 public class Travel : ScriptableObject
 {
     public string objective;

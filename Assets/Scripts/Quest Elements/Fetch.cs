@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Fetch", menuName = "Scriptable Objects/Fetch")]
+[CreateAssetMenu(fileName = "New Fetch", menuName = "Quests/Fetch Element")]
 public class Fetch : ScriptableObject
 {
     public string objective;

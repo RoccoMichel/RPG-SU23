@@ -1,16 +1,20 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Dialog", menuName = "Scriptable Objects/Dialog")]
+[CreateAssetMenu(fileName = "New Dialog", menuName = "Quests/Dialog Element")]
 public class Dialog : ScriptableObject
 {
     public bool freezePlayer = true;
+    public bool setCamera = false;
+    public Vector3 CameraPosition;
+    public Vector3 CameraRotation;
+    [Space(30)]
     public List<Conversation> conversation;
 
     [System.Serializable]
     public struct Conversation
     {
-        public Sprite speaker;
+        public Sprite speakerPortrait;
         public string title;
         [TextArea] public List<string> lines;
     }

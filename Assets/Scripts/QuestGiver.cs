@@ -2,6 +2,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Animator))]
 public class QuestGiver : Entity
 {
     [Header("Quest Giver Attributes")]
@@ -10,11 +11,13 @@ public class QuestGiver : Entity
     public bool completed;
     private bool interactable;
 
+    private Animator animator;
     private GameDirector director;
     private InputAction interactAction;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         interactAction = InputSystem.actions.FindAction("Interact");
         director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
     }
@@ -41,6 +44,8 @@ public class QuestGiver : Entity
             Debug.LogWarning($"{identity} ({name}) has no quest to give!");
             return;
         }
+
+        animator.Play("interact-right");
         director.QuestStart(Quests[index], this);
     }
 
@@ -48,6 +53,13 @@ public class QuestGiver : Entity
     {
         index++;
         if (index >= Quests.Count()) completed = true;
+
+        animator.Play("emote-yes");
+    }
+
+    public void Move(Vector3 newLocation)
+    {
+        transform.position = newLocation;
     }
 
     private void OnTriggerEnter(Collider other)

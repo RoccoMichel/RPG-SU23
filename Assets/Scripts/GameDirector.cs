@@ -68,12 +68,24 @@ public class GameDirector : MonoBehaviour
                 if (dataSlaughter.objective != string.Empty) canvasManager.SetObjective(dataSlaughter.objective, true);
 
                 break;
+
+            case Quest.ElementsTypes.Reward:
+                Reward dataReward = ActiveQuest.elements[questStage].data as Reward;
+
+                for(int i = 0; i<dataReward.reward.Length; i++)
+                {
+                    player.inventory.AddItem(dataReward.reward[i].item, dataReward.reward[i].amount, dataReward.notification);
+                }
+                QuestAdvance();
+                break;
         }
     }
 
     public void QuestAdvance()
     {
         if (!InQuest()) return;
+        ActiveQuest.elements[questStage].OnComplete.Invoke();
+        canvasManager.ClearObjective();
 
         questStage++;
         player.Freeze(false);
@@ -84,6 +96,8 @@ public class GameDirector : MonoBehaviour
     public void QuestComplete()
     {
         canvasManager.NewAlert("QUEST COMPLETE");
+        canvasManager.ClearObjective();
+
         if (questGiver != null) questGiver.QuestComplete();
         ActiveQuest = null;
         questGiver = null;
@@ -91,7 +105,8 @@ public class GameDirector : MonoBehaviour
 
     public void QuestCancel()
     {
-        canvasManager.NewAlert($"{ActiveQuest.questName}\n quest cancelled");
+        canvasManager.NewAlert($"{ActiveQuest.questName}\n QUEST CANCELLED");
+        canvasManager.ClearObjective();
 
         ActiveQuest = null;
         questGiver = null;        

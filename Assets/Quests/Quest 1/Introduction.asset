@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa93c0eeb610ba46abf8b63c7e40044, type: 3}
+  m_Name: Introduction
+  m_EditorClassIdentifier: 
+  questName: Intro Quest
+  description: The First Quest to Learn the Basics
+  elements:
+  - type: 0
+    data: {fileID: 11400000, guid: 51edd99c57bf670459d0a59fe9d358ed, type: 2}
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - type: 1
+    data: {fileID: 11400000, guid: 04eafa9d4324693418ab561e82ddaaac, type: 2}
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - type: 0
+    data: {fileID: 11400000, guid: 7d3bb795d231c774d85d176691ba5b40, type: 2}
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - type: 4
+    data: {fileID: 11400000, guid: 212146c6b25343f41bced29d147a03f0, type: 2}
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
