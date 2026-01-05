@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     public float fov = 60f;
     public float distance = 5;
     public Vector3 orbitOffset;
-    public Vector2 verticalLimit = new Vector2 (0, 50); //x: lowest, y: highest
+    public Vector2 verticalLimit = new (0, 50); //x: lowest, y: highest
     public Vector2 sensitivity = Vector2.one;
     /*[SerializeField]*/ private Vector2 rotationRaw;
     /*[SerializeField]*/ private Vector2 rotationFree;
@@ -46,10 +46,20 @@ public class CameraController : MonoBehaviour
 
         fov = Mathf.Clamp(fov, 0.1f, 179);
         cam.fieldOfView = fov;
-        transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, -distance);
 
+        SetPosition();
+        SetRotation();
+    }
+
+    private void SetPosition()
+    {
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -distance);
+    }
+
+    private void SetRotation()
+    {
         rotationRaw = lookAction.ReadValue<Vector2>();
-        if (freelookAction.WasPressedThisFrame()) rotationFree = rotation;        
+        if (freelookAction.WasPressedThisFrame()) rotationFree = rotation;
 
         // Freelook (sensitivity.y ONLY)
         if (freelookAction.inProgress)
@@ -76,11 +86,13 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void ResetRotation()
+    public void Reset()
     {
         rotationFree = Vector3.zero;
         rotationRaw = Vector3.zero;
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, 0));
+
+        SetPosition();
+        SetRotation();
     }
 }

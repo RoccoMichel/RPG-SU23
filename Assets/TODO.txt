@@ -1,9 +1,14 @@
-Make sure all UI is disabled and not toggleable while in specific moments (i.e. dialog, cutscenes, tootip when inventory gone)
-Creature AI behaviour
+*Make sure all UI is disabled and not toggleable while in specific moments (i.e. dialog, cutscenes, tootip when inventory gone)
+*Change Item Info from floating tooltip to info panel under the statistics
+*Creature AI behaviour
+*Player Animations
+*Fetch Quest Element
+*Water Shader
+*Decorate Map
+*SFX
 
-Add different alert styles (CanvasManager ln. 91)
-Fetch Quest Element
-Slaughter Quest Element
-Quest Giver Animations
-CursorBoundUI can sometimes be directly under the cursor for a frame or more resulting in problems
-	like constantly triggering an pointer even on the Item Slot beneth
+*Finish all Quests:
+	~ Introduction Quest, crossing the bridge and teaching the controls.
+	- Catch up Quest, find all NPCs on the island (travel/dialog elements)
+	~ Forest Gobbies, kill 15 goblins in the forest (slaughter element) (they only spawn there).
+	- Blueprint Quest, go to the tower and inside (mini dungeon) find the blueprint item (travel/fetch elements).

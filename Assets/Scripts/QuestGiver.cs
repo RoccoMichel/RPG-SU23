@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Animator))]
@@ -7,13 +8,20 @@ public class QuestGiver : Entity
 {
     [Header("Quest Giver Attributes")]
     [SerializeField] private int index;
-    public Quest[] Quests;
+    public QuestElement[] Quests;
     public bool completed;
     private bool interactable;
 
     private Animator animator;
     private GameDirector director;
     private InputAction interactAction;
+
+    [System.Serializable]
+    public struct QuestElement
+    {
+        public Quest quest;
+        public UnityEvent OnComplete;
+    }
 
     private void Start()
     {
@@ -28,15 +36,29 @@ public class QuestGiver : Entity
         {
             if (completed)
             {
-                director.canvasManager.NewMessage(new string[] { "You have already completed all my quests!", });
+                director.canvasManager.NewMessage(new string[] { "You have already completed all my quests!", }, "Quest-giver");
                 return;
             }
-            else if (director.InQuest()) return;
+            else
+            {
+                if (director.ActiveQuest == Quests[index].quest) return;
 
-            QuestStart();
+                string warning = director.InQuest() ? 
+                    $"You are already on a quest ({director.ActiveQuest.questName})!\nAccepting this will discard your current quest and its progress." 
+                    : string.Empty;
+
+                director.RequestConfirmation($"Accept new Quest: {Quests[index].quest.questName}", warning);  
+
+                director.confirmationEvent.AddListener(QuestStart);
+                director.rejectionEvent.AddListener(QuestCancel);
+            }
         }
     }
 
+    private void QuestCancel()
+    {
+        director.canvasManager.NewMessage(new string[] { "No hard feelings", }, "Quest-giver");
+    }
     private void QuestStart()
     {
         if (Quests == null)
@@ -46,15 +68,16 @@ public class QuestGiver : Entity
         }
 
         animator.Play("interact-right");
-        director.QuestStart(Quests[index], this);
+        director.QuestStart(Quests[index].quest, this);
     }
 
     public void QuestComplete()
     {
-        index++;
-        if (index >= Quests.Count()) completed = true;
-
         animator.Play("emote-yes");
+        Quests[index].OnComplete.Invoke();
+
+        index++;
+        if (index >= Quests.Count()) completed = true;        
     }
 
     public void Move(Vector3 newLocation)

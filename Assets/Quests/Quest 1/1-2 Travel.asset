@@ -17,4 +17,4 @@ MonoBehaviour:
   showWaypoints: 0
   missForgiveness: 4
   waypoints: []
-  destination: {x: -112.5, y: 3, z: 37.5}
+  destination: {x: -110, y: 3, z: 37.5}

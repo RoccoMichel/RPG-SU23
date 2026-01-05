@@ -8,10 +8,13 @@ public class Entity : MonoBehaviour
     public float maxHealth = 10;
     public bool immortal;
 
-    private void Start()
+    protected virtual void OnStart()
     {
-        if (!immortal && health < 0) Die();
+        if (!immortal && health <= 0) Die();
     }
+
+    private void Start() => OnStart();
+
     public virtual void Damage(float amount)
     {
         if (immortal) return;

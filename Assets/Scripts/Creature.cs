@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using Unity.VisualScripting;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Creature : Entity
 {
     [Header("Creature Attributes")]
@@ -34,14 +35,12 @@ public class Creature : Entity
         }
     }
 
-    private void Start()
+    protected override void OnStart()
     {
-        try
-        {
-            agent = GetComponent<NavMeshAgent>();
-            director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
-        }
-        catch { agent = null; }
+        agent = GetComponent<NavMeshAgent>();
+        director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
+
+        base.OnStart();
     }
 
     public override void Damage(float amount)
@@ -66,14 +65,15 @@ public class Creature : Entity
 
     public override void Die()
     {
-        base.Die();
-
-        if (director == null) return; // something is very wrong in the scene
+        // Report to Game Director for statistics and possible slaughter quest
+        director.ReportDeath(this);
 
         // Drop Loot
         foreach (LootItem loot in lootTable)
         {
             director.player.inventory.AddItem(loot.item, loot.RollDrop());
         }
+
+        base.Die();
     }
 }

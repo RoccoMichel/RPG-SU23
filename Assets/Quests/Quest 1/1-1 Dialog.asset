@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 1-1 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
-  CameraPosition: {x: 0, y: 0, z: 0}
-  CameraRotation: {x: 0, y: 0, z: 0}
+  setCamera: 1
+  CameraPosition: {x: -141.7934, y: 5.6091433, z: 38.764847}
+  CameraRotation: {x: 7.012967, y: 101.34422, z: -0.00040429836}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
     title: Ol' Lady

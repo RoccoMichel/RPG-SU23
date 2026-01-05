@@ -9,7 +9,7 @@ public class Dialog : ScriptableObject
     public Vector3 CameraPosition;
     public Vector3 CameraRotation;
     [Space(30)]
-    public List<Conversation> conversation;
+    public Conversation[] conversation;
 
     [System.Serializable]
     public struct Conversation

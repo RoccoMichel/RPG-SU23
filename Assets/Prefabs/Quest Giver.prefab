@@ -256,37 +256,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5560221484450535059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7194468381012080061
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7086186881919363703}
-  m_Layer: 0
-  m_Name: Camera Position
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7086186881919363703
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7194468381012080061}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.03378278, y: -0.9576617, z: 0.12607789, w: 0.2566072}
-  m_LocalPosition: {x: 2.1830313, y: 2, z: 3.1830006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1696424294366059314}
-  m_LocalEulerAnglesHint: {x: 15, y: -150, z: 0}
 --- !u!1 &7476402748909273452
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +352,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7086186881919363703}
   - {fileID: 3174765736379747065}
   - {fileID: 1687233901921154332}
   - {fileID: 5560221484450535059}
@@ -407,7 +375,10 @@ MonoBehaviour:
   immortal: 1
   index: 0
   Quests:
-  - {fileID: 11400000, guid: 4eeae55d4b5650d4caeba187752a92d1, type: 2}
+  - quest: {fileID: 11400000, guid: 4eeae55d4b5650d4caeba187752a92d1, type: 2}
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   completed: 0
 --- !u!95 &5049581789993821593
 Animator:

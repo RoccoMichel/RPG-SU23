@@ -8,11 +8,9 @@ using System.Linq;
 public class DialogManager : MonoBehaviour
 {
     [Header("Attributes")]
-    public bool richText; // custom system to change color and add effects to text
-    public bool skippable; // can the play spam skip through this dialog?
-    public Modes mode;
-    public string title;
-    public Sprite image;
+    private Modes mode;
+    private string title;
+    private Sprite image;
     [TextArea] public List<string> lines;
 
     public enum Modes { Basic, Titled, Image, TitledImage }
@@ -102,7 +100,7 @@ public class DialogManager : MonoBehaviour
         lineIndex = 0;
         conversationIndex++;
 
-        if (conversationIndex >= data.conversation.Count)
+        if (conversationIndex >= data.conversation.Length)
         {
             FinishConversation();
             return;

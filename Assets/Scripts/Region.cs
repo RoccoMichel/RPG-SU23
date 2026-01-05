@@ -16,8 +16,8 @@ public class Region : MonoBehaviour
     {
         if (!other.CompareTag("Player") || !notifyPlayer) return;
 
-        if (newDiscovery) director.canvasManager.NewAlert("New Region\n discovered:");
-        director.canvasManager.NewAlert(name);
+        if (newDiscovery) director.canvasManager.NewAlert("New Region\n discovered:", CanvasManager.AlertStyles.Discover);
+        director.canvasManager.NewAlert(name, CanvasManager.AlertStyles.Discover);
 
         StartCoroutine(PauseRegionNotification(30));
         newDiscovery = false;

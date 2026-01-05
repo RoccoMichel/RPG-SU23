@@ -12,12 +12,20 @@ public class CanvasManager : MonoBehaviour
     [HideInInspector] public TMP_Text objectiveDisplay;
     [HideInInspector] public Map map;
     [HideInInspector] public GameObject cursorBoundUI;
-    [HideInInspector] public List<string> alertQueue = new();
-    /*[HideInInspector]*/ public List<GameObject> notificationsQueue = new();
 
+    private List<Alert> alertQueue = new();
+    private List<GameObject> notificationsQueue = new();
+
+    private ConfirmationManager confirmationManager;
     private InputAction mapAction;
     private InputAction inventoryAction;
     private PlayerBase player;
+
+    private struct Alert
+    {
+        public string message;
+        public AlertStyles style;
+    }
 
     private void Start()
     {
@@ -140,10 +148,27 @@ public class CanvasManager : MonoBehaviour
         yield return null;
     }
 
-    // Alert Related
-    public void NewAlert(string message) // extra styles?
+    // Confirmation Window Related
+    public void NewConfirmation(string query)
     {
-        alertQueue.Add(message);
+        if (confirmationManager != null) Destroy(confirmationManager.gameObject);
+        confirmationManager = Instantiate(Resources.Load("UI/Confirmation Window"), gameObject.transform).GetComponent<ConfirmationManager>();
+        confirmationManager.SetValues(query);
+    }
+    public void NewConfirmation(string query, string warning)
+    {
+        if (confirmationManager != null) Destroy(confirmationManager.gameObject);
+        confirmationManager = Instantiate(Resources.Load("UI/Confirmation Window"), gameObject.transform).GetComponent<ConfirmationManager>();
+        confirmationManager.SetValues(query, warning);
+    }
+
+    // Alert Related
+    public enum AlertStyles { Quest, Discover, Slaughter, Blimp } // more styles?
+    public void NewAlert(string message, AlertStyles style)
+    {
+        Alert newAlert = new() { message = message, style = style };
+        alertQueue.Add(newAlert);
+
         if (alertQueue.Count <= 1) StartCoroutine(Alerts());
     }
 
@@ -151,13 +176,13 @@ public class CanvasManager : MonoBehaviour
     {
         float displayDurationSeconds = 1f;
         float fadeOutDurationSeconds = 1.5f;
-        TMP_Text alertDisplay = Instantiate(Resources.Load("UI/Alert"), gameObject.transform).GetComponent<TMP_Text>();
-
-        yield return new WaitForEndOfFrame();
 
         while (alertQueue.Count > 0)
         {
-            alertDisplay.text = alertQueue[0];
+            TMP_Text alertDisplay = Instantiate(Resources.Load($"UI/Alert {alertQueue[0].style}"), gameObject.transform).GetComponent<TMP_Text>();
+
+            yield return new WaitForEndOfFrame();
+            alertDisplay.text = alertQueue[0].message;
             alertDisplay.CrossFadeAlpha(1, 0, true);
 
             yield return new WaitForSeconds(displayDurationSeconds);
@@ -165,9 +190,10 @@ public class CanvasManager : MonoBehaviour
 
             yield return new WaitForSeconds(fadeOutDurationSeconds);
             alertQueue.RemoveAt(0);
+            Destroy(alertDisplay.gameObject);
         }
 
-        Destroy(alertDisplay.gameObject);
+        
         yield return null;
     }
 

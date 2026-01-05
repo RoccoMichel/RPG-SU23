@@ -5,4 +5,12 @@ using System.Collections.Generic;
 public class Fetch : ScriptableObject
 {
     public string objective;
+    public Element[] FetchList;
+    
+    [System.Serializable]
+    public struct Element
+    {
+        public Item type;
+        public int amount;
+    }
 }
