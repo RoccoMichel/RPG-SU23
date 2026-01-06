@@ -71,7 +71,7 @@ public class Creature : Entity
         // Drop Loot
         foreach (LootItem loot in lootTable)
         {
-            director.player.inventory.AddItem(loot.item, loot.RollDrop());
+            director.player.inventory.AddItem(loot.item, loot.RollDrop(), true);
         }
 
         base.Die();

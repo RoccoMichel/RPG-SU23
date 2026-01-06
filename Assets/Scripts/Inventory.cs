@@ -1,10 +1,13 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private TMP_Text playerStats;
+    [SerializeField] private TMP_Text itemNameDisplay;
+    [SerializeField] private TMP_Text itemDescriptionDisplay;
+    [SerializeField] private GameObject itemTooltip;
     private List<ItemSlot> inventorySlots = new();
     private PlayerInventory playerInventory;
     private GameDirector director;
@@ -25,6 +28,9 @@ public class Inventory : MonoBehaviour
 
         if (playerStats != null) ReloadStatistics();
         if (playerInventory != null) RefreshInventory();
+
+        UpdateItemTooltip((Item)Resources.Load("Items/Empty"));
+        itemTooltip.SetActive(false);
     }
 
     public void RefreshInventory()
@@ -43,6 +49,13 @@ public class Inventory : MonoBehaviour
         {
             inventorySlots[i].Set(playerInventory.Items[i], true);
         }
+    }
+
+    public void UpdateItemTooltip(Item item)
+    {
+        itemTooltip.SetActive(true);
+        itemNameDisplay.text = item.itemName;
+        itemDescriptionDisplay.text = item.description;
     }
 
     public void ReloadStatistics()

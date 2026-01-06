@@ -47,7 +47,7 @@ public class QuestGiver : Entity
                     $"You are already on a quest ({director.ActiveQuest.questName})!\nAccepting this will discard your current quest and its progress." 
                     : string.Empty;
 
-                director.RequestConfirmation($"Accept new Quest: {Quests[index].quest.questName}", warning);  
+                director.RequestConfirmation($"Accept new quest:\n{Quests[index].quest.questName}", warning);  
 
                 director.confirmationEvent.AddListener(QuestStart);
                 director.rejectionEvent.AddListener(QuestCancel);
@@ -57,7 +57,9 @@ public class QuestGiver : Entity
 
     private void QuestCancel()
     {
-        director.canvasManager.NewMessage(new string[] { "No hard feelings", }, "Quest-giver");
+        animator.Play("emote-no");
+        director.canvasManager.Notification(identity + ": No hard feelings");
+        director.canvasManager.NewAlert($"QUEST CANCELLED", CanvasManager.AlertStyles.QuestElement);
     }
     private void QuestStart()
     {
@@ -74,15 +76,32 @@ public class QuestGiver : Entity
     public void QuestComplete()
     {
         animator.Play("emote-yes");
-        Quests[index].OnComplete.Invoke();
 
         index++;
-        if (index >= Quests.Count()) completed = true;        
+        if (index >= Quests.Count()) completed = true;
+
+        // Important Invoke is Last!
+        Quests[index-1].OnComplete.Invoke();
+
     }
 
-    public void Move(Vector3 newLocation)
+    /// <summary>
+    /// Makes every quest available again, by setting index to zero.
+    /// </summary>
+    public void ResetQuests()
+    {
+        index = 0; 
+        completed = false;
+    }
+    public void Relocate(Vector3 newLocation)
     {
         transform.position = newLocation;
+    }
+
+    public override void Die()
+    {
+        animator.Play("die");
+        base.Die();
     }
 
     private void OnTriggerEnter(Collider other)

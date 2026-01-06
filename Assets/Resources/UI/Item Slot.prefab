@@ -54,9 +54,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: 1
+  item: {fileID: 0}
   icon: {fileID: 4077275238475150836}
   counter: {fileID: 6995616163497455292}
-  item: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!222 &5640817846752235851
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -114,23 +115,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 4949379648235600850}
           m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
-          m_MethodName: InstantiateTooltip
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4949379648235600850}
-          m_TargetAssemblyTypeName: ItemSlot, Assembly-CSharp
-          m_MethodName: DestroyTooltip
+          m_MethodName: UpdateTooltip
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

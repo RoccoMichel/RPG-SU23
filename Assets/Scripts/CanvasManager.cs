@@ -44,7 +44,7 @@ public class CanvasManager : MonoBehaviour
     public void SetObjective(string name)
     {
         if (objectiveDisplay == null) objectiveDisplay = InstantiateObjectiveDisplay();
-        objectiveDisplay.text = "Current Objective:\n" + name;
+        objectiveDisplay.text = "CURRENT OBJECTIVE\n" + name;
     }
 
     public void SetObjective(string name, bool highlightUI)
@@ -163,7 +163,7 @@ public class CanvasManager : MonoBehaviour
     }
 
     // Alert Related
-    public enum AlertStyles { Quest, Discover, Slaughter, Blimp } // more styles?
+    public enum AlertStyles { Quest, QuestElement, Discover, Blimp } // more styles?
     public void NewAlert(string message, AlertStyles style)
     {
         Alert newAlert = new() { message = message, style = style };

@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     public bool tooltip = true;
+    [SerializeField] private Item item;
     [SerializeField] private Image icon;
     [SerializeField] private TMP_Text counter;
-    private GameDirector director;
-    [SerializeField] private Item item;
+    [SerializeField] private Inventory inventoryUI;
 
     public void Set(PlayerInventory.ItemSlot slotData)
     {
@@ -23,19 +23,11 @@ public class ItemSlot : MonoBehaviour
         tooltip = hasTooltip;
     }
 
-    public void InstantiateTooltip()
+    public void UpdateTooltip()
     {
         if (!tooltip || item == null) return;
 
-        if (director == null) director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
-        director.canvasManager.NewTooltip(item.itemName, item.description);
-    }
-
-    public void DestroyTooltip()
-    {
-        if (director == null) director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
-        if (!tooltip || director.canvasManager.cursorBoundUI == null) return;
-
-        Destroy(director.canvasManager.cursorBoundUI);
+        if (inventoryUI == null) inventoryUI = gameObject.GetComponentInParent<Inventory>();
+        inventoryUI.UpdateItemTooltip(item);
     }
 }

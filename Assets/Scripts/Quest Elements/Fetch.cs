@@ -1,14 +1,12 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "New Fetch", menuName = "Quests/Fetch Element")]
 public class Fetch : ScriptableObject
 {
-    public string objective;
-    public Element[] FetchList;
+    public Target[] FetchList;
     
     [System.Serializable]
-    public struct Element
+    public struct Target
     {
         public Item type;
         public int amount;

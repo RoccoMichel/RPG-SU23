@@ -1,9 +1,8 @@
-*Make sure all UI is disabled and not toggleable while in specific moments (i.e. dialog, cutscenes, tootip when inventory gone)
-*Change Item Info from floating tooltip to info panel under the statistics
 *Creature AI behaviour
 *Player Animations
-*Fetch Quest Element
+*Remove Items from PlayerInventory
 *Water Shader
+*Blimp Models
 *Decorate Map
 *SFX
 

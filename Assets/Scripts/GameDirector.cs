@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -16,8 +15,9 @@ public class GameDirector : MonoBehaviour
     public Quest ActiveQuest;
     private QuestGiver questGiver;
     [SerializeField] private int questStage;
-    private List<string> slaughterTargets;
-    private List<int> slaughterRemaining;
+    private List<string> elementTargets;
+    private List<int> elementRemaining;
+    private GameObject travelRoute;
 
     [Header("References")]
     public CanvasManager canvasManager;
@@ -58,18 +58,27 @@ public class GameDirector : MonoBehaviour
         if (debugAction.WasPressedThisFrame()) debug = !debug;
     }
 
+    public void ReportItem(Item item)
+    {
+        if (elementTargets != null) ProgressListObjective(item.itemName, Quest.ElementsTypes.Fetch);
+    }
+
     public void ReportDeath(Creature deceased)
     {
         statistics.AddKill(deceased);
-        if (slaughterTargets != null) SlaughterProgress(deceased.identity);
+        if (elementTargets != null) ProgressListObjective(deceased.identity, Quest.ElementsTypes.Slaughter);
     }
 
     private void QuestLogic()
     {
         if (ActiveQuest == null) return;
 
-        switch(ActiveQuest.elements[questStage].type)
+        if (ActiveQuest.elements[questStage].data == null)
+            Debug.LogError($"Quest Element Data is null! Quest: {ActiveQuest.questName}, Stage: {questStage}");
+
+        switch (ActiveQuest.elements[questStage].type)
         {
+            // DIALOG ELEMENT
             case Quest.ElementsTypes.Dialog:
                 Dialog dataDialog = ActiveQuest.elements[questStage].data as Dialog;
                 if (dataDialog.freezePlayer) player.Freeze(true);
@@ -81,35 +90,51 @@ public class GameDirector : MonoBehaviour
                 canvasManager.NewDialog(dataDialog); 
                 break;
 
+            // TRAVEL ELEMENT
             case Quest.ElementsTypes.Travel:
                 Travel dataTravel = ActiveQuest.elements[questStage].data as Travel;
-                Instantiate(Resources.Load("Quest Elements/Travel Route"), new Vector3(0, -1000, 0), Quaternion.identity).GetComponent<TravelRoute>().SetTravelRoute(dataTravel, this);
+
+                if (travelRoute != null) Destroy(travelRoute);
+                travelRoute = Instantiate((GameObject)Resources.Load("Quest Elements/Travel Route"), new Vector3(0, -9001, 0), Quaternion.identity);
+                travelRoute.GetComponent<TravelRoute>().SetTravelRoute(dataTravel, this);
+
                 if (dataTravel.objective != string.Empty) canvasManager.SetObjective(dataTravel.objective, true);
 
                 break;
 
+            // FETCH ELEMENT
             case Quest.ElementsTypes.Fetch:
                 Fetch dataFetch = ActiveQuest.elements[questStage].data as Fetch;
 
-                if (dataFetch.objective != string.Empty) canvasManager.SetObjective(dataFetch.objective, true);
+                elementTargets = new();
+                elementRemaining = new();
+                foreach (Fetch.Target target in dataFetch.FetchList)
+                {
+                    elementTargets.Add(target.type.itemName);
+                    elementRemaining.Add(target.amount);
+                }
+
+                canvasManager.SetObjective(GetListRelatedObjective(Quest.ElementsTypes.Fetch), true);
 
                 break;
 
+            // SLAUGHTER ELEMENT
             case Quest.ElementsTypes.Slaughter:
                 Slaughter dataSlaughter = ActiveQuest.elements[questStage].data as Slaughter;
 
-                slaughterTargets = new();
-                slaughterRemaining = new();
+                elementTargets = new();
+                elementRemaining = new();
                 foreach (Slaughter.Target target in dataSlaughter.targets)
                 {
-                    slaughterTargets.Add(target.creature.identity);
-                    slaughterRemaining.Add(target.amount);
+                    elementTargets.Add(target.creature.identity);
+                    elementRemaining.Add(target.amount);
                 }
 
-                canvasManager.SetObjective(GetSlaughterObjective(), true);
+                canvasManager.SetObjective(GetListRelatedObjective(Quest.ElementsTypes.Slaughter), true);
 
                 break;
 
+            // REWARD ELEMENT
             case Quest.ElementsTypes.Reward:
                 Reward dataReward = ActiveQuest.elements[questStage].data as Reward;
 
@@ -122,11 +147,16 @@ public class GameDirector : MonoBehaviour
                 break;
         }
     }
+    
+    public Quest.ElementsTypes GetCurrentQuestElementType()
+    {
+        return ActiveQuest.elements[questStage].type;
+    }
 
     public void QuestAdvance()
     {
-        slaughterTargets = null;
-        slaughterRemaining = null;
+        elementTargets = null;
+        elementRemaining = null;
         Camera.main.GetComponent<CameraController>().Reset();
 
         if (!InQuest()) return;
@@ -150,50 +180,63 @@ public class GameDirector : MonoBehaviour
         questGiver = null;
     }
 
-    public void QuestCancel()
-    {
-        canvasManager.NewAlert($"{ActiveQuest.questName}\n QUEST CANCELLED", CanvasManager.AlertStyles.Quest);
-        canvasManager.ClearObjective();
-
-        ActiveQuest = null;
-        questGiver = null;        
-    }
-
     public void QuestStart(Quest newQuest, QuestGiver questGiver)
     {
         ActiveQuest = newQuest;
         this.questGiver = questGiver;
         questStage = 0;
 
+        if (travelRoute != null) Destroy(travelRoute);
+
         QuestLogic();
     }
 
-    private string GetSlaughterObjective()
+    private string GetListRelatedObjective(Quest.ElementsTypes type)
     {
-        string objective = "Target List:";
-        for (int i = 0; i < slaughterTargets.Count; i++)
-            objective += $"\n{slaughterTargets[i]}\t {(slaughterRemaining[i] != 0 ? slaughterRemaining[i] + "x" : "CLEAR!")}";   
+        string objective = string.Empty;
+
+        switch (type)
+        {
+            case Quest.ElementsTypes.Fetch:
+                objective = "Collect the following:";
+                break;
+            case Quest.ElementsTypes.Slaughter:
+                objective = "Slaughter the following:";
+                break;
+            default:
+                Debug.LogError("GetListRelatedObjective called with non list-related type!");
+                return string.Empty;
+        }
+
+        for (int i = 0; i < elementTargets.Count; i++)
+            objective += $"\n{elementTargets[i]}\t {(elementRemaining[i] != 0 ? elementRemaining[i] + "x" : "- CLEAR -")}";   
 
         return objective;
     }
 
-    private void SlaughterProgress(string identity)
+    private void ProgressListObjective(string identity, Quest.ElementsTypes type)
     {
-        for (int i = 0; i < slaughterTargets.Count; i++)
+        for (int i = 0; i < elementTargets.Count; i++)
         {
-            if (slaughterTargets[i] == identity)
+            if (elementTargets[i] == identity)
             {
-                slaughterRemaining[i] = Mathf.Clamp(slaughterRemaining[i] - 1, 0, int.MaxValue);    
-                canvasManager.SetObjective(GetSlaughterObjective(), false);
+                elementRemaining[i] = Mathf.Clamp(elementRemaining[i] - 1, 0, int.MaxValue);    
+                canvasManager.SetObjective(GetListRelatedObjective(type), false);
 
                 break;
             }
-            if (i == slaughterTargets.Count) return;
+            if (i == elementTargets.Count) return;
         }
 
-        if (slaughterRemaining.Exists(x => x > 0)) return;
+        if (elementRemaining.Exists(x => x > 0)) return;
 
-        canvasManager.NewAlert("Slaughter Complete!", CanvasManager.AlertStyles.Slaughter);
+        if (type == Quest.ElementsTypes.Fetch)
+            canvasManager.NewAlert("Fetch Complete!", CanvasManager.AlertStyles.QuestElement);
+        else if (type == Quest.ElementsTypes.Slaughter)
+            canvasManager.NewAlert("Slaughter Complete!", CanvasManager.AlertStyles.QuestElement);
+        else
+            Debug.LogError("ProgressListObjective called with non list-related type!");
+
         QuestAdvance();
     }
 

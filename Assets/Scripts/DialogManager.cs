@@ -124,7 +124,8 @@ public class DialogManager : MonoBehaviour
     protected virtual void FinishConversation()
     {
         data = null;
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>().QuestAdvance();
+        GameDirector director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
+        if (director.InQuest() && director.GetCurrentQuestElementType() == Quest.ElementsTypes.Dialog) director.QuestAdvance();
 
         gameObject.SetActive(false);
     }

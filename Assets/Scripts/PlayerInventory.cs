@@ -37,6 +37,8 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(Item item, int amount)
     {
+        Director.ReportItem(item);
+
         int[] possibleIndexes = GetSlotIndexesByName(item.itemName);
         List<int> changes = new();
 
