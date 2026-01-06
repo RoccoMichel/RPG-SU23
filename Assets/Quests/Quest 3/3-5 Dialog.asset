@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 776a0468c3ea54446a58c5c1397849ec, type: 3}
-  m_Name: 2-5 Dialog
+  m_Name: 3-5 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
   setCamera: 0

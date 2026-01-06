@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -80,9 +81,15 @@ public class QuestGiver : Entity
         index++;
         if (index >= Quests.Count()) completed = true;
 
-        // Important Invoke is Last!
-        Quests[index-1].OnComplete.Invoke();
+        StartCoroutine(DelayedCompletion());
+    }
 
+    private IEnumerator DelayedCompletion()
+    {
+        yield return new WaitForEndOfFrame();
+        Quests[index - 1].OnComplete.Invoke();
+
+        yield break;
     }
 
     /// <summary>
@@ -92,6 +99,14 @@ public class QuestGiver : Entity
     {
         index = 0; 
         completed = false;
+    }
+    /// <summary>
+    /// Removes a single instance of the specified item from the player's inventory.
+    /// Can not be more than 1 because Unity Inspector does not support multiple parameters.
+    /// </summary>
+    public void RemoveItemFromPlayer(Item item)
+    {
+        director.player.inventory.TryRemoveItem(item, 1, true);
     }
     public void Relocate(Vector3 newLocation)
     {

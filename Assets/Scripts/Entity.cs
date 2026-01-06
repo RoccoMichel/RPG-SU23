@@ -28,6 +28,11 @@ public class Entity : MonoBehaviour
         health = Mathf.Clamp(health + Mathf.Abs(amount), 0, maxHealth);
     }
 
+    public void SetImmortality(bool newState)
+    {
+        immortal = newState;
+    }
+
     public virtual void Die()
     {
         Destroy(gameObject);

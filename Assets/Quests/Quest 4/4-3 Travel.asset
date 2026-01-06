@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
-  m_Name: 2-4 Travel
+  m_Name: 4-3 Travel
   m_EditorClassIdentifier: 
-  objective: Go back to Robby
-  showDistance: 1
+  objective: Go in the basement
+  showDistance: 0
   showWaypoints: 0
-  missForgiveness: 2
+  missForgiveness: 3
   waypoints: []
   destination: {x: 0, y: 0, z: 0}

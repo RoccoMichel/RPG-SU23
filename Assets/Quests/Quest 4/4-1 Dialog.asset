@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776a0468c3ea54446a58c5c1397849ec, type: 3}
+  m_Name: 4-1 Dialog
+  m_EditorClassIdentifier: 
+  freezePlayer: 1
+  setCamera: 0
+  CameraPosition: {x: 0, y: 0, z: 0}
+  CameraRotation: {x: 0, y: 0, z: 0}
+  conversation:
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
+    title: Smart Guy
+    lines:
+    - forgor ma blueprints in the workshop
+    - but now there's the bloody gobbies are all over it
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - And you want me to get them for you?
+    - I don't even know your name man!
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
+    title: Daniel
+    lines:
+    - Daniel
+    - Now make your way to the tower, it's somewhere in the basement!

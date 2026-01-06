@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ public class PlayerInventory : MonoBehaviour
         return results.ToArray();
     }
 
+    // ADDING ITEMS
     public void AddItem(Item item, int amount)
     {
         Director.ReportItem(item);
@@ -101,13 +103,58 @@ public class PlayerInventory : MonoBehaviour
         if (notification) Director.canvasManager.Notification($"+ {amount} {item.itemName}");
     }
 
-    //public void RemoveItem(Item item, int amount)
-    //{
+    // REMOVING ITEMS
+    public void RemoveItem(Item item, int amount)
+    {
+        GetSlotIndexesByName(item.itemName);
+        int[] slots = GetSlotIndexesByName(item.itemName);
+        Array.Sort(slots);
+        Array.Reverse(slots);
 
-    //}
+        for(int i= 0; i < slots.Length; i++)
+        {
+            int index = slots[i];
 
-    //public void RemoveItem(Item item, int amount)
-    //{
-    //    Items.RemoveAt(0);
-    //}
+            if (Items[index].amount > amount)
+            {
+                AddAmountAtIndex(index, -amount);
+                break;
+            }
+            else
+            {
+                amount -= Items[index].amount;
+                Items.RemoveAt(index);
+            }
+        }
+    }
+
+    public void RemoveItem(Item item, int amount, bool notification)
+    {
+        RemoveItem(item, amount);
+
+        if (notification) Director.canvasManager.Notification($"- {amount} {item.itemName}");
+    }
+
+    public bool TryRemoveItem(Item item, int amount)
+    {
+        int availableAmount = 0;
+        int[] slots = GetSlotIndexesByName(item.itemName);
+
+        foreach (int i in slots)  availableAmount += Items[i].amount;
+        
+        // Not enough items to remove in player inventory
+        if (availableAmount < amount) return false; 
+
+        RemoveItem(item, amount);
+        return true;
+    }
+
+    public bool TryRemoveItem(Item item, int amount, bool notification)
+    {
+        bool success = TryRemoveItem(item, amount);
+
+        if (success && notification) Director.canvasManager.Notification($"- {amount} {item.itemName}");
+
+        return success;
+    }
 }

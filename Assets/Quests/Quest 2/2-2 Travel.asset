@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
   m_Name: 2-2 Travel
   m_EditorClassIdentifier: 
-  objective: Make your way to the forest
-  showDistance: 1
+  objective: 
+  showDistance: 0
   showWaypoints: 0
-  missForgiveness: 20
+  missForgiveness: 3
   waypoints: []
-  destination: {x: 10.5, y: 15.6, z: 2.7}
+  destination: {x: 0, y: 0, z: 0}

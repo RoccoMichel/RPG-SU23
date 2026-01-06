@@ -8,6 +8,7 @@ public class Quest : ScriptableObject
     [TextArea] public string description;
     public bool mainQuest = false;
     public QuestElement[] elements;
+    [TextArea, SerializeField] private string devNote;
     public enum ElementsTypes { Dialog, Travel, Fetch, Slaughter, Reward };
 
     [System.Serializable]

@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3ccf86648731145b9f24b5ab07d634, type: 3}
-  m_Name: 2-3 Slaughter
+  m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
+  m_Name: 3-4 Travel
   m_EditorClassIdentifier: 
-  targets:
-  - amount: 0
-    creature: {fileID: 0}
+  objective: Go back to Robby
+  showDistance: 1
+  showWaypoints: 0
+  missForgiveness: 2
+  waypoints: []
+  destination: {x: 0, y: 0, z: 0}
