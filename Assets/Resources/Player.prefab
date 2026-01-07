@@ -698,7 +698,12 @@ MonoBehaviour:
   speed: 5
   canAttack: 1
   canMove: 1
+  interactDistance: 1.5
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 64
   inventory: {fileID: 357648148056466930}
+  head: {fileID: 3538772703628668960}
 --- !u!114 &357648148056466930
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Blimp : MonoBehaviour
 {
+    public bool complete;
     public int currentStage = 0;
     public Mesh[] stages;
 
@@ -19,5 +20,7 @@ public class Blimp : MonoBehaviour
     {
         currentStage = Mathf.Clamp(currentStage + 1, 0, stages.Length - 1);
         GetComponent<MeshFilter>().mesh = stages[currentStage];
+
+        if (currentStage == stages.Length - 1) complete = true;
     }
 }

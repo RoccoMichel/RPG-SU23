@@ -10,13 +10,16 @@ public class PlayerBase : Entity
     public float speed = 3;
     public bool canAttack = true;
     public bool canMove = true;
+    public float interactDistance = 1.5f;
+    public LayerMask interactLayer;
     private Animator animator;
     private InputAction attackAction;
     private InputAction interactAction;
     [HideInInspector] public CameraController CameraController { get; private set; }
 
-    [Header("Inventory")]
+    [Header("References")]
     public PlayerInventory inventory;
+    [SerializeField] private Transform head;
 
     private void Start()
     {
@@ -35,7 +38,21 @@ public class PlayerBase : Entity
     public void Interact()
     {
         if (!canMove) return;
-        animator.Play("pick-up");
+
+        if (Physics.Raycast(head.position, head.forward, out RaycastHit hit, interactDistance, interactLayer))
+        {
+            Interact interactable = hit.collider.GetComponent<Interact>();
+
+            if (interactable == null)
+            {
+                Debug.LogWarning(hit.collider.name + " is on the 'Interact' layer but does not have Interact component attached.");
+                return;
+            }
+
+            interactable.InteractAction();
+
+            animator.Play(interactable.GetInteractAnimation());
+        }        
     }
 
     protected virtual void Attack()

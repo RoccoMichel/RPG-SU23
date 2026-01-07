@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa93c0eeb610ba46abf8b63c7e40044, type: 3}
   m_Name: Catch up
   m_EditorClassIdentifier: 
-  questName: Unnamed Quest
-  description: 
+  questName: Catch Up
+  description: Talk to everyone
   mainQuest: 0
-  elements: []
+  elements:
+  - type: 0
+    data: {fileID: 11400000, guid: c3fd2d3272c63c740aea1282e749f462, type: 2}
+  - type: 1
+    data: {fileID: 11400000, guid: e3aac5d4619a8d6418804c5672307763, type: 2}
+  - type: 0
+    data: {fileID: 11400000, guid: c2186f794028b7f47815c91ba16a1785, type: 2}
   devNote: 

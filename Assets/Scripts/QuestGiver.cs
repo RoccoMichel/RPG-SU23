@@ -11,11 +11,9 @@ public class QuestGiver : Entity
     [SerializeField] private int index;
     public QuestElement[] Quests;
     public bool completed;
-    private bool interactable;
 
     private Animator animator;
     private GameDirector director;
-    private InputAction interactAction;
 
     [System.Serializable]
     public struct QuestElement
@@ -27,32 +25,28 @@ public class QuestGiver : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        interactAction = InputSystem.actions.FindAction("Interact");
         director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
     }
 
-    private void Update()
+    public void Interact()
     {
-        if (interactAction.WasPressedThisFrame() && interactable)
+        if (completed)
         {
-            if (completed)
-            {
-                director.canvasManager.NewMessage(new string[] { "You have already completed all my quests!", }, "Quest-giver");
-                return;
-            }
-            else
-            {
-                if (director.ActiveQuest == Quests[index].quest) return;
+            director.canvasManager.NewMessage(new string[] { "You have already completed all my quests!", }, "Quest-giver");
+            return;
+        }
+        else
+        {
+            if (director.ActiveQuest == Quests[index].quest) return;
 
-                string warning = director.InQuest() ? 
-                    $"You are already on a quest ({director.ActiveQuest.questName})!\nAccepting this will discard your current quest and its progress." 
-                    : string.Empty;
+            string warning = director.InQuest() ?
+                $"You are already on a quest ({director.ActiveQuest.questName})!\nAccepting this will discard your current quest and its progress."
+                : string.Empty;
 
-                director.RequestConfirmation($"Accept new quest:\n{Quests[index].quest.questName}", warning);  
+            director.RequestConfirmation($"Accept new quest:\n{Quests[index].quest.questName}", warning);
 
-                director.confirmationEvent.AddListener(QuestStart);
-                director.rejectionEvent.AddListener(QuestCancel);
-            }
+            director.confirmationEvent.AddListener(QuestStart);
+            director.rejectionEvent.AddListener(QuestCancel);
         }
     }
 
@@ -117,14 +111,5 @@ public class QuestGiver : Entity
     {
         animator.Play("die");
         base.Die();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) interactable = true;
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player")) interactable = false;
     }
 }
