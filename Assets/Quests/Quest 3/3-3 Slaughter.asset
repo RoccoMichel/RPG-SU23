@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 3-3 Slaughter
   m_EditorClassIdentifier: 
   targets:
-  - amount: 1
-    creature: {fileID: 3615453826647770471, guid: 12b8ee62a8ddb0f44a1523b6fcb884b5, type: 3}
+  - amount: 5
+    creature: {fileID: 6070279731731945975, guid: f9a2a3517601d3040989f55d699fe458, type: 3}

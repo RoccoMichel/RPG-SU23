@@ -12,6 +12,7 @@ public class PlayerBase : Entity
     public bool canMove = true;
     public float interactDistance = 1.5f;
     public LayerMask interactLayer;
+    public LayerMask entityLayer;
     private Animator animator;
     private InputAction attackAction;
     private InputAction interactAction;
@@ -58,8 +59,21 @@ public class PlayerBase : Entity
     protected virtual void Attack()
     {
         if (!canAttack) return;
-        animator.Play("attack-melee-right");
-        // logic
+
+        if (Physics.Raycast(head.position, head.forward, out RaycastHit hit, interactDistance, entityLayer))
+        {
+            Entity entity = hit.collider.GetComponent<Entity>();
+
+            if (entity == null)
+            {
+                Debug.LogWarning(hit.collider.name + " is on the 'Entity' layer but does not have Entity component attached.");
+                return;
+            }
+
+            entity.Damage(strength);
+
+            animator.Play("attack-melee-right");
+        }
     }
 
     /// <param name="state">True: Freeze | False: Unfreeze</param>

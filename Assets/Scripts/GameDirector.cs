@@ -193,7 +193,7 @@ public class GameDirector : MonoBehaviour
 
     private string GetListRelatedObjective(Quest.ElementsTypes type)
     {
-        string objective = string.Empty;
+        string objective;
 
         switch (type)
         {
@@ -254,7 +254,6 @@ public class GameDirector : MonoBehaviour
 
     internal void Confirmation()
     {
-        Debug.Log("Request Confirmed");
         player.Freeze(false);
 
         confirmationEvent.Invoke();
@@ -264,7 +263,6 @@ public class GameDirector : MonoBehaviour
 
     internal void Rejection()
     {
-        Debug.Log("Request Rejected");
         player.Freeze(false);
 
         rejectionEvent.Invoke();

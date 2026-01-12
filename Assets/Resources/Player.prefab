@@ -702,6 +702,9 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 64
+  entityLayer:
+    serializedVersion: 2
+    m_Bits: 128
   inventory: {fileID: 357648148056466930}
   head: {fileID: 3538772703628668960}
 --- !u!114 &357648148056466930
@@ -733,9 +736,6 @@ MonoBehaviour:
   decelerationSpeed: 1
   groundCheck: {fileID: 3733362837497381969}
   groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!143 &7611344689784701336
 CharacterController:
   m_ObjectHideFlags: 0

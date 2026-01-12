@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
-  m_Name: 3-2 Travel
+  m_Script: {fileID: 11500000, guid: eaa93c0eeb610ba46abf8b63c7e40044, type: 3}
+  m_Name: Important Delivery
   m_EditorClassIdentifier: 
-  objective: Make your way to the Light Forest
-  showDistance: 1
-  showWaypoints: 0
-  missForgiveness: 13
-  waypoints: []
-  destination: {x: -23, y: 6, z: 40}
+  questName: Unnamed Quest
+  description: 
+  mainQuest: 0
+  elements: []
+  devNote: 

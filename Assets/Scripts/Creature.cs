@@ -10,26 +10,26 @@ public class Creature : Entity
     public int level = 1;
     public float strength = 1;
     public float defense;
-    public float speed = 1;
+    public float speed = 1;    
 
     [Header("Loot")]
     public List<LootItem> lootTable = new();
 
-    private GameDirector director;
     private HealthBar healthBar;
+    private GameDirector director;
     private NavMeshAgent agent;
 
     [System.Serializable]
     public struct LootItem
     {
         public Item item; // or use PickUp class so it has to physically be picked 
-        [Range(0f, 1f)] public float dropRate;
+        [Range(0f, 1f)] public float dropChance;
         public Vector2 minMaxAmount;
 
         public readonly int RollDrop()
         {
             float roll = Random.Range(0, 1f);
-            if (roll < dropRate) return Mathf.CeilToInt(Random.Range(minMaxAmount.x, minMaxAmount.y));
+            if (roll < dropChance) return Mathf.CeilToInt(Random.Range(minMaxAmount.x, minMaxAmount.y));
 
             return 0; // unlucky
         }
@@ -40,19 +40,22 @@ public class Creature : Entity
         agent = GetComponent<NavMeshAgent>();
         director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
 
+        healthBar = InstantiateHealthBar();
+
         base.OnStart();
     }
 
     public override void Damage(float amount)
     {
+        // defense stuff here!
         if (healthBar == null) healthBar = InstantiateHealthBar();
-        healthBar.Damage(amount);
+        healthBar.Set(0, maxHealth, health);
         base.Damage(amount);
     }
     public override void Heal(float amount)
     {
         if (healthBar == null) healthBar = InstantiateHealthBar();
-        healthBar.Heal(amount);
+        healthBar.Set(0, maxHealth, health);
         base.Heal(amount);
     }
 

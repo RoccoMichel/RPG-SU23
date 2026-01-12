@@ -3,6 +3,8 @@
 *Water Shader
 *Blimp
 *Door animation fix
+*Show Distance on objective for travel elements
+~Creature Healthbar disable at certain distance
 *Decorate Map
 *SFX
 
@@ -11,3 +13,4 @@
 	~ Catch up Quest, find all NPCs on the island (travel/dialog elements)
 	~ Forest Gobbies, kill 15 goblins in the forest (slaughter element) (they only spawn there).
 	~ Blueprint Quest, go to the tower and inside (mini dungeon) find the blueprint item (travel/fetch elements).
+	- Important Delivery, bring an item to NPC far coast help them from ambush (travel/slaughter/dialog elements).

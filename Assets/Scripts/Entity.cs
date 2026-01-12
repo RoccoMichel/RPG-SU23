@@ -37,4 +37,9 @@ public class Entity : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void Reset()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Entity");
+    }
 }

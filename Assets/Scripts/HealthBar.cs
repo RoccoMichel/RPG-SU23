@@ -8,8 +8,9 @@ public class HealthBar : MonoBehaviour
     private float value;
     private float min;
     private float max;
-    private TMP_Text titleDisplay;
-    private Slider slider;
+    [Header("References")]
+    [SerializeField] private TMP_Text titleDisplay;
+    [SerializeField] private Slider slider;
 
     private void Update()
     {
@@ -42,14 +43,6 @@ public class HealthBar : MonoBehaviour
             catch { Debug.LogError("HealthBar Prefab is missing 'TMP_Text' Component in Children!"); return; }
         }
         titleDisplay.text = title;
-    }
-    public void Damage(float amount)
-    {
-        value = Mathf.Clamp(value - amount, min, max);
-    }
-    public void Heal(float amount)
-    {
-        value = Mathf.Clamp(value + amount, min, max);
     }
     public void Destroy()
     {
