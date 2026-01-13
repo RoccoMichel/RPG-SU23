@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776a0468c3ea54446a58c5c1397849ec, type: 3}
+  m_Name: 5-4 Dialog
+  m_EditorClassIdentifier: 
+  freezePlayer: 1
+  setCamera: 0
+  CameraPosition: {x: 100.3588, y: 16.641361, z: 26.841423}
+  CameraRotation: {x: 37.33376, y: 196.21997, z: 359.9905}
+  conversation:
+  - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
+    title: Bobby
+    lines:
+    - Help me!
+    - I have nothing to defend myself.
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - I gotchu Bobby

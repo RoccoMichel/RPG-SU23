@@ -12,8 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa93c0eeb610ba46abf8b63c7e40044, type: 3}
   m_Name: Important Delivery
   m_EditorClassIdentifier: 
-  questName: Unnamed Quest
+  questName: Important Delivery
   description: 
-  mainQuest: 0
-  elements: []
+  mainQuest: 1
+  elements:
+  - type: 0
+    data: {fileID: 11400000, guid: 81660ebe705ada642951979bd2b0ee22, type: 2}
+  - type: 4
+    data: {fileID: 11400000, guid: 9d904d9116df3a94581fe9abc812a8e9, type: 2}
+  - type: 1
+    data: {fileID: 11400000, guid: 15d4944a17401a54bad7ac58d81be280, type: 2}
+  - type: 0
+    data: {fileID: 11400000, guid: 37cc483ae6503ec43b80c46fbbdf2051, type: 2}
+  - type: 3
+    data: {fileID: 11400000, guid: 9b6d169e65c6a7148a52298ee4989ece, type: 2}
+  - type: 0
+    data: {fileID: 11400000, guid: b97dd2f1786cf1948918077dd4e5e8ef, type: 2}
   devNote: 

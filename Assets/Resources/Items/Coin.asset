@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Coin
   description: Freshly melted!
-  stackSize: 1000
+  stackSize: 50
   icon: {fileID: 21300000, guid: ab0cc94cb00860b4f89e6b9daf3d59a5, type: 3}
   type: 0
   modifier: 0

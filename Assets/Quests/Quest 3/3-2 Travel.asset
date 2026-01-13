@@ -15,6 +15,6 @@ MonoBehaviour:
   objective: Make your way to the Light Forest
   showDistance: 1
   showWaypoints: 0
-  missForgiveness: 13
+  missForgiveness: 16
   waypoints: []
   destination: {x: -23, y: 6, z: 40}
