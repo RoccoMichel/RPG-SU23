@@ -2,7 +2,6 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Animator))]
 public class QuestGiver : Entity
@@ -102,9 +101,17 @@ public class QuestGiver : Entity
     {
         director.player.inventory.TryRemoveItem(item, 1, true);
     }
-    public void Relocate(Vector3 newLocation)
+    /// <summary>
+    /// Removes a single instance of the specified item from the player's inventory.
+    /// Can not be more than 1 because Unity Inspector does not support multiple parameters.
+    /// </summary>
+    public void AddItemToPlayer(Item item)
     {
-        transform.position = newLocation;
+        director.player.inventory.AddItem(item, 1, true);
+    }
+    public void Relocate(Transform newTransform)
+    {
+        transform.SetPositionAndRotation(newTransform.position, newTransform.rotation);
     }
 
     public override void Die()

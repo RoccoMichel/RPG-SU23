@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Catch Up
   description: Talk to everyone
-  mainQuest: 0
+  mainQuest: 1
   elements:
   - type: 0
     data: {fileID: 11400000, guid: c3fd2d3272c63c740aea1282e749f462, type: 2}
@@ -22,16 +22,18 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: e3aac5d4619a8d6418804c5672307763, type: 2}
   - type: 0
     data: {fileID: 11400000, guid: c2186f794028b7f47815c91ba16a1785, type: 2}
-  - type: 0
+  - type: 1
     data: {fileID: 11400000, guid: de68248265e502a43a2adc95465eb6d4, type: 2}
   - type: 0
     data: {fileID: 11400000, guid: cfa264f893ebff9449b29a54bd9603f1, type: 2}
-  - type: 0
+  - type: 1
     data: {fileID: 11400000, guid: 1782126dbb71166428ef26c44478ebea, type: 2}
   - type: 0
     data: {fileID: 11400000, guid: e4f59fdfba2a8c745b38057ccae4d844, type: 2}
-  - type: 0
+  - type: 1
     data: {fileID: 11400000, guid: 8b75d59018eace642b66be23e99476e2, type: 2}
   - type: 0
     data: {fileID: 11400000, guid: b731fbbf950393e4387938bb29614e7b, type: 2}
+  - type: 4
+    data: {fileID: 11400000, guid: d171d6bf9b8749048b2c281a2220f6b1, type: 2}
   devNote: 

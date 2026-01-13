@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
-  m_Name: 2-8 Travel
+  m_Script: {fileID: 11500000, guid: 0b5b2f6e4c439744aa83e0e6540cf8d9, type: 3}
+  m_Name: 2-10 Reward
   m_EditorClassIdentifier: 
-  objective: Return to the Ol' Lady
-  showDistance: 0
-  showWaypoints: 0
-  missForgiveness: 4
-  waypoints: []
-  destination: {x: -142.65, y: 2.967, z: 38.39}
+  notification: 1
+  reward:
+  - item: {fileID: 11400000, guid: a0378c0377063a4498ba6e35b45b406c, type: 2}
+    amount: 1

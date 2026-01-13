@@ -16,4 +16,12 @@ MonoBehaviour:
   setCamera: 0
   CameraPosition: {x: 0, y: 0, z: 0}
   CameraRotation: {x: 0, y: 0, z: 0}
-  conversation: []
+  conversation:
+  - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
+    title: Ol' Lady
+    lines:
+    - So, you've meet everyone?
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - Yes mam'

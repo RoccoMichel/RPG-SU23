@@ -60,6 +60,8 @@ public class PlayerBase : Entity
     {
         if (!canAttack) return;
 
+        animator.Play("attack-melee-right");
+
         if (Physics.Raycast(head.position, head.forward, out RaycastHit hit, interactDistance, entityLayer))
         {
             Entity entity = hit.collider.GetComponent<Entity>();
@@ -71,8 +73,6 @@ public class PlayerBase : Entity
             }
 
             entity.Damage(strength);
-
-            animator.Play("attack-melee-right");
         }
     }
 
@@ -97,5 +97,20 @@ public class PlayerBase : Entity
     public override void Die()
     {
         print("Player died!");
+    }
+
+    public void IncreaseStrength(int amount)
+    {
+        strength += amount;
+    }
+
+    public void IncreaseDefense(int amount)
+    {
+        defense += amount;
+    }
+
+    public void IncreaseSpeed(int amount)
+    {
+        speed += amount;
     }
 }

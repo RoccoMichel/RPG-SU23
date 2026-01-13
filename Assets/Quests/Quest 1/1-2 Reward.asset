@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b5b2f6e4c439744aa83e0e6540cf8d9, type: 3}
-  m_Name: 1-4 Reward
+  m_Name: 1-2 Reward
   m_EditorClassIdentifier: 
   notification: 1
   reward:

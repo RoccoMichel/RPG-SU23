@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa93c0eeb610ba46abf8b63c7e40044, type: 3}
   m_Name: Quest Abandonment
   m_EditorClassIdentifier: 
-  questName: Abandonment
+  questName: Take a Break
   description: Abandon your Quest!
   mainQuest: 0
   elements:
   - type: 0
     data: {fileID: 11400000, guid: 22b430a19ed85af429422e8b0241b6bc, type: 2}
+  devNote: 

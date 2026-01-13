@@ -98,7 +98,11 @@ public class GameDirector : MonoBehaviour
                 travelRoute = Instantiate((GameObject)Resources.Load("Quest Elements/Travel Route"), new Vector3(0, -9001, 0), Quaternion.identity);
                 travelRoute.GetComponent<TravelRoute>().SetTravelRoute(dataTravel, this);
 
-                if (dataTravel.objective != string.Empty) canvasManager.SetObjective(dataTravel.objective, true);
+                if (dataTravel.objective != string.Empty)
+                {
+                    canvasManager.SetObjective(dataTravel.objective, true);
+                    StartCoroutine(TravelObjective(dataTravel.objective, questStage));
+                }
 
                 break;
 
@@ -238,6 +242,24 @@ public class GameDirector : MonoBehaviour
             Debug.LogError("ProgressListObjective called with non list-related type!");
 
         QuestAdvance();
+    }
+
+    private System.Collections.IEnumerator TravelObjective(string objective, int objectiveStage)
+    {
+        yield return new WaitForEndOfFrame();
+
+        int distance = 0;
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        Vector3 finish = GameObject.FindGameObjectWithTag("Finish").transform.position;
+
+        while (objectiveStage == questStage)
+        {
+            distance = Mathf.RoundToInt(Vector3.Distance(player.position, finish));
+            canvasManager.SetObjective(objective + $"\n({distance}m)", false);
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield break;
     }
 
     /// <summary>

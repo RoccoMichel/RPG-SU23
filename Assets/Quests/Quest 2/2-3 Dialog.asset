@@ -16,4 +16,21 @@ MonoBehaviour:
   setCamera: 0
   CameraPosition: {x: 0, y: 0, z: 0}
   CameraRotation: {x: 0, y: 0, z: 0}
-  conversation: []
+  conversation:
+  - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
+    title: Robby
+    lines:
+    - I'm Robby
+    - Bobby, my twin brother is out chopping trees
+    - I'm on my lunch break.
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - Can I help with the blimp in anyway?
+  - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
+    title: Robby
+    lines:
+    - Yeah, but it's no urgent.
+    - First you've got to meet Daniel
+    - His genius is the reason we might be able to get off the island in the first
+      place

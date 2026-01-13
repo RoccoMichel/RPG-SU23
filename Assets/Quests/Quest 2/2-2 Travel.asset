@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
   m_Name: 2-2 Travel
   m_EditorClassIdentifier: 
-  objective: 
+  objective: Talk to Robby
   showDistance: 0
   showWaypoints: 0
-  missForgiveness: 3
+  missForgiveness: 4
   waypoints: []
-  destination: {x: 0, y: 0, z: 0}
+  destination: {x: -129.2194, y: 3.157, z: 28.461447}
