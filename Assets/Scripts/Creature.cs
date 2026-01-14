@@ -41,6 +41,7 @@ public class Creature : Entity
         agent = GetComponent<NavMeshAgent>();
         director = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameDirector>();
 
+        agent.speed = speed;
         healthBar = InstantiateHealthBar();
 
         base.OnStart();
