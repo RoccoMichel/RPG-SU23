@@ -15,6 +15,6 @@ MonoBehaviour:
   objective: Talk to Robby
   showDistance: 0
   showWaypoints: 0
-  missForgiveness: 4
+  missForgiveness: 2
   waypoints: []
   destination: {x: -129.2194, y: 3.157, z: 28.461447}

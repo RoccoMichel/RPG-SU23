@@ -20,10 +20,12 @@ public class PlayerBase : Entity
 
     [Header("References")]
     public PlayerInventory inventory;
+    private Vector3 spawnPoint;
     [SerializeField] private Transform head;
 
     private void Start()
     {
+        spawnPoint = transform.position;
         animator = GetComponent<Animator>();
         inventory = GetComponent<PlayerInventory>();
         attackAction = InputSystem.actions.FindAction("Attack");
@@ -42,17 +44,15 @@ public class PlayerBase : Entity
 
         if (Physics.Raycast(head.position, head.forward, out RaycastHit hit, interactDistance, interactLayer))
         {
-            Interact interactable = hit.collider.GetComponent<Interact>();
-
-            if (interactable == null)
+            
+            if (!hit.collider.TryGetComponent<Interact>(out var interactable))
             {
                 Debug.LogWarning(hit.collider.name + " is on the 'Interact' layer but does not have Interact component attached.");
                 return;
             }
 
-            interactable.InteractAction();
-
             animator.Play(interactable.GetInteractAnimation());
+            interactable.InteractAction();
         }        
     }
 
@@ -64,9 +64,8 @@ public class PlayerBase : Entity
 
         if (Physics.Raycast(head.position, head.forward, out RaycastHit hit, interactDistance, entityLayer))
         {
-            Entity entity = hit.collider.GetComponent<Entity>();
-
-            if (entity == null)
+            
+            if (!hit.collider.TryGetComponent<Entity>(out var entity))
             {
                 Debug.LogWarning(hit.collider.name + " is on the 'Entity' layer but does not have Entity component attached.");
                 return;
@@ -91,12 +90,29 @@ public class PlayerBase : Entity
     }
     public override void Damage(float amount)
     {
+        amount -= (amount / 100 * defense); // reduce damage depending on defense 
         base.Damage(amount);
         Instantiate(Resources.Load("Effects/Basic Damage"), transform.position, Quaternion.identity);
     }
     public override void Die()
     {
-        print("Player died!");
+        Freeze(true);
+        StartCoroutine(Freeze(false, 1));
+        transform.localPosition = spawnPoint;
+        GameDirector.Instance.QuestFail();
+    }
+
+    public void Die(string deathMessage)
+    {
+        Die();
+        GameDirector.Instance.canvasManager.NewAlert(deathMessage, CanvasManager.AlertStyles.QuestElement);
+    }
+
+    public System.Collections.IEnumerator Freeze(bool state, float delaySeconds)
+    {
+        yield return new WaitForSeconds(delaySeconds);
+        Freeze(state);
+        yield break;
     }
 
     public void IncreaseStrength(int amount)

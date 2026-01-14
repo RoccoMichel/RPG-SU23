@@ -20,17 +20,35 @@ MonoBehaviour:
   - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
     title: Ol' Lady
     lines:
-    - Welcome, Welcome
-    - to city 17
-    - you have chosen or beeen chosen to relocated to one of our finiest remainning
-      urban centeres
-    - I thought so much of city 17 to elect my administration here
-    - in the citadel so thoughfully given by our benefactous
+    - 'To Continue a converstation Press [E]
+
+      (your interact key)'
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
-    - Doctor Breen???
+    - What are you talking about?
   - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
     title: Ol' Lady
     lines:
-    - Interact with me to continue
+    - Well done!
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - I am so confused
+  - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
+    title: Ol' Lady
+    lines:
+    - We are trying to build a blimp here.
+    - And we need your help!
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - Sure...
+  - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
+    title: Ol' Lady
+    lines:
+    - Talk with me again!
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - ok...

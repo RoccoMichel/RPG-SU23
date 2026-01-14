@@ -15,6 +15,7 @@ public class Creature : Entity
     [Header("Loot")]
     public List<LootItem> lootTable = new();
 
+    private float distanceToPlayer;
     private HealthBar healthBar;
     private GameDirector director;
     private NavMeshAgent agent;
@@ -45,9 +46,15 @@ public class Creature : Entity
         base.OnStart();
     }
 
+    private void Update()
+    {
+        distanceToPlayer = Vector3.Distance(transform.position, director.player.transform.position);
+        if (healthBar != null) healthBar.gameObject.SetActive(distanceToPlayer < 8f); // Hide health bar after 8 meters
+    }
+
     public override void Damage(float amount)
     {
-        // defense stuff here!
+        amount = amount - (amount / 100 * defense); // reduce damage depending on defense 
         if (healthBar == null) healthBar = InstantiateHealthBar();
         healthBar.Set(0, maxHealth, health);
         base.Damage(amount);

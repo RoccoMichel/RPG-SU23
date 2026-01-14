@@ -22,13 +22,13 @@ public class ConfirmationManager : MonoBehaviour
 
     public void Confirm()
     {
-        GameDirector.instance.Confirmation();
+        GameDirector.Instance.Confirmation();
         Destroy(gameObject);
     }
 
     public void Reject()
     {
-        GameDirector.instance.Rejection();
+        GameDirector.Instance.Rejection();
         Destroy(gameObject);
     }
 }

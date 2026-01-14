@@ -17,5 +17,9 @@ public class Sign : MonoBehaviour
         }
     }
 
-    public void Read() => director.canvasManager.NewMessage(new string[] { "It reads: ", text == string.Empty ? "*you couldn't decipher it*" : text });
+    public void Read()
+    {
+        director.canvasManager.NewMessage(new string[] { "It reads: ", text == string.Empty ? "*you couldn't decipher it*" : text });
+        director.player.Freeze(true);
+    }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController), typeof(PlayerBase))]
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerBase playerStats;

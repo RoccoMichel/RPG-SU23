@@ -49,11 +49,10 @@ public class QuestGiver : Entity
         }
     }
 
-    private void QuestCancel()
+    public void QuestCancel()
     {
         animator.Play("emote-no");
-        director.canvasManager.Notification(identity + ": No hard feelings");
-        director.canvasManager.NewAlert($"QUEST CANCELLED", CanvasManager.AlertStyles.QuestElement);
+        //director.canvasManager.NewAlert($"QUEST CANCELLED", CanvasManager.AlertStyles.QuestElement);
     }
     private void QuestStart()
     {

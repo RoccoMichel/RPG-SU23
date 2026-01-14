@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6841959897752928285}
   - component: {fileID: 6500929483009455244}
   - component: {fileID: 2460970253920168921}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ear (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 3152920309051004338}
   - component: {fileID: 5203324585572600175}
   - component: {fileID: 5089008276034909044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,8 +168,8 @@ MonoBehaviour:
   speed: 4
   lootTable:
   - item: {fileID: 11400000, guid: 058b98f640fcdc24b935eadc98c86ce5, type: 2}
-    dropRate: 0.15
-    minMaxAmount: {x: 1, y: 1}
+    dropChance: 1
+    minMaxAmount: {x: 2, y: 5}
 --- !u!195 &6961247415942400950
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 5334497494927687398}
   - component: {fileID: 7236062438091063194}
   - component: {fileID: 1120613078561173425}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ear (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,6 +15,6 @@ MonoBehaviour:
   objective: Talk to Franklin
   showDistance: 0
   showWaypoints: 0
-  missForgiveness: 4
+  missForgiveness: 2
   waypoints: []
   destination: {x: -151.63, y: 2.241, z: 49.26}

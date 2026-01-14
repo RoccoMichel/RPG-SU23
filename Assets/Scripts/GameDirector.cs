@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class GameDirector : MonoBehaviour
 {
     public bool debug;
-    public static GameDirector instance;
+    public static GameDirector Instance;
     private InputAction debugAction;
 
     [Header("Quest Related")]
@@ -25,6 +25,7 @@ public class GameDirector : MonoBehaviour
     public PlayerBase player;
     public Blimp blimp;
 
+    [HideInInspector] public UnityEvent respawnPickUps;
     [HideInInspector] public UnityEvent confirmationEvent;
     [HideInInspector] public UnityEvent rejectionEvent;
 
@@ -32,7 +33,7 @@ public class GameDirector : MonoBehaviour
 
     private void Start()
     {
-        if (instance == null ) instance = this;
+        if (Instance == null ) Instance = this;
 
         try { player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBase>(); }
         catch { Debug.LogWarning("No Player active in Scene!"); }
@@ -184,6 +185,18 @@ public class GameDirector : MonoBehaviour
         questGiver = null;
     }
 
+    public void QuestFail()
+    {
+        if (!InQuest()) return;
+
+        canvasManager.NewAlert("QUEST FAILED", CanvasManager.AlertStyles.Quest);
+        canvasManager.ClearObjective();
+
+        if (questGiver != null) questGiver.QuestCancel();
+        ActiveQuest = null;
+        questGiver = null;
+    }
+
     public void QuestStart(Quest newQuest, QuestGiver questGiver)
     {
         ActiveQuest = newQuest;
@@ -248,7 +261,7 @@ public class GameDirector : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        int distance = 0;
+        int distance;
         Transform player = GameObject.FindGameObjectWithTag("Player").transform;
         Vector3 finish = GameObject.FindGameObjectWithTag("Finish").transform.position;
 
@@ -292,6 +305,11 @@ public class GameDirector : MonoBehaviour
         confirmationEvent.RemoveAllListeners();
     }
 
+    public void RespawnPickUps()
+    {
+        respawnPickUps.Invoke();
+    }
+
     private void OnGUI()
     {
         if (!debug) return;
@@ -301,10 +319,13 @@ public class GameDirector : MonoBehaviour
             fontSize = 24,
             fontStyle = FontStyle.Bold,
         };
+
         // Text
         GUI.Label(new Rect(10, 10, 100, 20), $"ms per frame: {System.Decimal.Round((decimal)(Time.deltaTime * 1000), 2)} ", style);
+
         // Buttons
         if (GUI.Button(new Rect(10, 40, 100, 20), "Reload")) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         if (GUI.Button(new Rect(10, 70, 100, 20), "Unfreeze")) player.Freeze(false);
+        if (GUI.Button(new Rect(10, 70, 100, 20), "Quit")) Application.Quit();
     }
 }

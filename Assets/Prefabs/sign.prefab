@@ -102,9 +102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Dark Forest
-
-    do not enter'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -230,6 +228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sign
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c38b8bdba75430429d1718ad0728822, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -240,6 +242,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2c38b8bdba75430429d1718ad0728822, type: 3}
       insertIndex: 1
       addedObject: {fileID: 3491002215841331128}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2c38b8bdba75430429d1718ad0728822, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 8851818046406545441}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2c38b8bdba75430429d1718ad0728822, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4517886568551871291}
@@ -266,7 +271,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2038bae16318d347a3e0ea24f6bf903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: as
+  text: 
+--- !u!114 &8851818046406545441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669860718058976161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98936fce2749bb44489cdeb4bed50420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactAnimation: 0
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3491002215841331128}
+        m_TargetAssemblyTypeName: Sign, Assembly-CSharp
+        m_MethodName: Read
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!64 &4517886568551871291
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -25,3 +25,11 @@ MonoBehaviour:
     title: YOU
     lines:
     - Yes mam'
+  - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
+    title: YOU
+    lines:
+    - 'Then you deserve these!
+
+      The island is big and you have a lot of work
+      to do.'
+    - Press [Tab] for your Inventory
