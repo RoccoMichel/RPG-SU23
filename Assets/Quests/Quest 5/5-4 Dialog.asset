@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5-4 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
+  setCamera: 1
   CameraPosition: {x: 100.3588, y: 16.641361, z: 26.841423}
   CameraRotation: {x: 37.33376, y: 196.21997, z: 359.9905}
   conversation:

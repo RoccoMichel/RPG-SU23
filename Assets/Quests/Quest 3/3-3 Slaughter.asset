@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets:
   - amount: 5
-    creature: {fileID: 6070279731731945975, guid: f9a2a3517601d3040989f55d699fe458, type: 3}
+    creature: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}

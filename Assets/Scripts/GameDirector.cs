@@ -26,6 +26,7 @@ public class GameDirector : MonoBehaviour
     public Blimp blimp;
 
     [HideInInspector] public UnityEvent respawnPickUps;
+    [HideInInspector] public UnityEvent respawnCreatures;
     [HideInInspector] public UnityEvent confirmationEvent;
     [HideInInspector] public UnityEvent rejectionEvent;
 
@@ -88,6 +89,8 @@ public class GameDirector : MonoBehaviour
                     Camera.main.transform.position = dataDialog.CameraPosition;
                     Camera.main.transform.eulerAngles = dataDialog.CameraRotation;
                 }
+                else if (dataDialog.CameraPosition != Vector3.zero || dataDialog.CameraRotation != Vector3.zero)
+                    Debug.LogWarning("Dialog Camera Position/Rotation set but 'setCamera' is false!");
                 canvasManager.NewDialog(dataDialog); 
                 break;
 
@@ -308,6 +311,11 @@ public class GameDirector : MonoBehaviour
     public void RespawnPickUps()
     {
         respawnPickUps.Invoke();
+    }
+
+    public void RespawnCreatures()
+    {
+        respawnCreatures.Invoke();
     }
 
     private void OnGUI()

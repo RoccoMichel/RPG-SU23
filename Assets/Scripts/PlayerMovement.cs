@@ -30,8 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!playerStats.canMove) return;
-
         moveValue = moveAction.ReadValue<Vector2>();
         momentum = Mathf.Clamp01(moveValue == Vector2.zero ? momentum - decelerationSpeed * Time.deltaTime : momentum + accelerationSpeed * Time.deltaTime);
         direction = Vector2.Lerp(direction, moveValue, 0.015f);
@@ -40,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
         
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
+
+        playerStats.animator.SetFloat("Speed", move.sqrMagnitude);
+        if (!playerStats.canMove) return;
+
         velocity.y += GRAVITY * Time.deltaTime;
 
         controller.Move(Time.deltaTime * move);

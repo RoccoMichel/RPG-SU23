@@ -13,7 +13,7 @@ public class PlayerBase : Entity
     public float interactDistance = 1.5f;
     public LayerMask interactLayer;
     public LayerMask entityLayer;
-    private Animator animator;
+    internal Animator animator;
     private InputAction attackAction;
     private InputAction interactAction;
     [HideInInspector] public CameraController CameraController { get; private set; }
@@ -96,6 +96,7 @@ public class PlayerBase : Entity
     }
     public override void Die()
     {
+        animator.Play("die");
         Freeze(true);
         StartCoroutine(Freeze(false, 1));
         transform.localPosition = spawnPoint;

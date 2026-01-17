@@ -10,11 +10,14 @@ public class Creature : Entity
     public int level = 1;
     public float strength = 1;
     public float defense;
-    public float speed = 1;    
+    public float speed = 1;
+    public bool respawn = true;
 
     [Header("Loot")]
     public List<LootItem> lootTable = new();
 
+    [SerializeField] private float healthBarOffset;
+    private Vector3 spawnPoint;
     private float distanceToPlayer;
     private HealthBar healthBar;
     private GameDirector director;
@@ -44,13 +47,19 @@ public class Creature : Entity
         agent.speed = speed;
         healthBar = InstantiateHealthBar();
 
+        if (respawn) director.respawnCreatures.AddListener(Respawn);
+        spawnPoint = transform.position;
+
         base.OnStart();
     }
 
     private void Update()
     {
+        if (health <= 0) return; // dead but not destroyed for respawn purposes
+
         distanceToPlayer = Vector3.Distance(transform.position, director.player.transform.position);
         if (healthBar != null) healthBar.gameObject.SetActive(distanceToPlayer < 8f); // Hide health bar after 8 meters
+        else healthBar = InstantiateHealthBar();
     }
 
     public override void Damage(float amount)
@@ -69,7 +78,8 @@ public class Creature : Entity
 
     protected virtual HealthBar InstantiateHealthBar()
     {
-        HealthBar newHealthBar = Instantiate(Resources.Load("HealthBar"), transform).GetComponent<HealthBar>();
+        Vector3 offset = new Vector3(0, healthBarOffset, 0);
+        HealthBar newHealthBar = Instantiate(Resources.Load("HealthBar"), transform.position + offset, Quaternion.identity, transform).GetComponent<HealthBar>();
         newHealthBar.Set(0, maxHealth, health, level, identity);
         return newHealthBar;
     }
@@ -85,6 +95,25 @@ public class Creature : Entity
             director.player.inventory.AddItem(loot.item, loot.RollDrop(), true);
         }
 
+        if (respawn)
+        {
+            if (healthBar != null) Destroy(healthBar.gameObject);
+            agent.enabled = false;
+            transform.position = new Vector3(0, -1234, 0);
+
+            return; // skip base.Die()
+
+        }
+
         base.Die();
+    }
+
+    public void Respawn()
+    {
+        health = maxHealth;
+        transform.position = spawnPoint;
+
+        agent.enabled = true;
+        agent.Warp(transform.position); // fix NavMeshAgent
     }
 }

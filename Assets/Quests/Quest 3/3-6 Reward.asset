@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196a3d32d69007c4e8e48ed40e5b980e, type: 3}
-  m_Name: Coin
+  m_Script: {fileID: 11500000, guid: 0b5b2f6e4c439744aa83e0e6540cf8d9, type: 3}
+  m_Name: 3-6 Reward
   m_EditorClassIdentifier: 
-  itemName: Coin
-  description: Freshly melted!
-  stackSize: 100
-  icon: {fileID: 21300000, guid: ab0cc94cb00860b4f89e6b9daf3d59a5, type: 3}
-  type: 0
-  modifier: 0
+  notification: 1
+  reward:
+  - item: {fileID: 11400000, guid: f218cc28ade02b94fb7d2ab19424ad7c, type: 2}
+    amount: 1

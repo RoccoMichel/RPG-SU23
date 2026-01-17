@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Stick
   m_EditorClassIdentifier: 
   itemName: Wooden Stick
-  description: Pretty strong
-  stackSize: 50
+  description: 'Solid stick, made for a good smaking
+
+    +1 Strength'
+  stackSize: 1
   icon: {fileID: 21300000, guid: 2ae4db714508ba4448e2d1d8c39fa26a, type: 3}
   type: 0
   modifier: 0

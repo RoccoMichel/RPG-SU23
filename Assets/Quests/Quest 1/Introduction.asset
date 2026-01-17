@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Intro Quest
   description: The First Quest to Learn the Basics
-  mainQuest: 0
+  mainQuest: 1
   elements:
   - type: 0
     data: {fileID: 11400000, guid: 51edd99c57bf670459d0a59fe9d358ed, type: 2}
-  - type: 4
-    data: {fileID: 11400000, guid: 212146c6b25343f41bced29d147a03f0, type: 2}
   devNote: 

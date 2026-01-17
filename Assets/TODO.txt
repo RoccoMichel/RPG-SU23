@@ -1,9 +1,8 @@
 *Creature AI behaviour
-*Player Animations
+~Player Animations
 *Water Shader
-*Blimp
+~Blimp
 *Decorate Map
-*SFX
 
 *Finish all Quests:
 	+ Introduction Quest, teaching the controls (dialog elements).

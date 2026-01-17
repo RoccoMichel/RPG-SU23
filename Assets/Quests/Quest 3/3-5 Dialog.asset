@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 3-5 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
-  CameraPosition: {x: 0, y: 0, z: 0}
-  CameraRotation: {x: 0, y: 0, z: 0}
+  setCamera: 1
+  CameraPosition: {x: -135.3121, y: 8.556726, z: 32.393986}
+  CameraRotation: {x: 36.92125, y: 113.98877, z: 359.98846}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
@@ -26,3 +26,4 @@ MonoBehaviour:
     lines:
     - Thank you so much.
     - Now we can finally continue working on that blimp!
+    - Here take this for your efforts!
