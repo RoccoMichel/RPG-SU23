@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 2-3 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
-  CameraPosition: {x: 0, y: 0, z: 0}
-  CameraRotation: {x: 0, y: 0, z: 0}
+  setCamera: 1
+  CameraPosition: {x: -134.4266, y: 4.5479145, z: 29.975792}
+  CameraRotation: {x: 4.537756, y: 86.7675, z: 359.97412}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
     title: Robby
@@ -30,7 +30,7 @@ MonoBehaviour:
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
     title: Robby
     lines:
-    - Yeah, but it's no urgent.
+    - Yeah, but it's not urgent.
     - First you've got to meet Daniel
     - His genius is the reason we might be able to get off the island in the first
       place

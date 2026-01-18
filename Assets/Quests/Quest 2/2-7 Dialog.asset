@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 2-7 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
-  CameraPosition: {x: 0, y: 0, z: 0}
-  CameraRotation: {x: 0, y: 0, z: 0}
+  setCamera: 1
+  CameraPosition: {x: -153.8297, y: 3.682574, z: 43.90921}
+  CameraRotation: {x: 0.8249856, y: 39.191044, z: 359.93573}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 9537d94594b9f9045a30fc7ad22a02d4, type: 3}
     title: Franklin
@@ -25,7 +25,7 @@ MonoBehaviour:
     title: YOU
     lines:
     - Yeah, he has.
-    - He told me I should come to you if I want to cancle a quest.
+    - He told me I should come to you if I want to cancel a quest.
     - He also asked if you might have seen his blueprints?
   - speakerPortrait: {fileID: 21300000, guid: 9537d94594b9f9045a30fc7ad22a02d4, type: 3}
     title: Franklin

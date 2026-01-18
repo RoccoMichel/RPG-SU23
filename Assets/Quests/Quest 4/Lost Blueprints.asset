@@ -28,7 +28,4 @@ MonoBehaviour:
     data: {fileID: 11400000, guid: c197f267aecf30242af375e0b589845a, type: 2}
   - type: 0
     data: {fileID: 11400000, guid: 1f972d1df72bb5544b694fd23eb3ea0f, type: 2}
-  devNote: '- quest giver needs to remove blueprint item on quest complete!
-
-    -
-    add goblins in and around the tower!'
+  devNote: '- quest giver needs to remove blueprint item on quest complete!'

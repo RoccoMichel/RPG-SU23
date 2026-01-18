@@ -208,9 +208,33 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
+      propertyPath: healthBarOffset
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
+      propertyPath: lootTable.Array.data[0].minMaxAmount.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
+      propertyPath: lootTable.Array.data[0].minMaxAmount.y
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8596904996660360170, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
       propertyPath: m_Name
       value: Gobby Lv 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936697638620293456, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936697638620293456, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936697638620293456, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 8936697638620293456, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
       propertyPath: m_LocalPosition.x
@@ -250,6 +274,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8936697638620293456, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936697638620293456, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

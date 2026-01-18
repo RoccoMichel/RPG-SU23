@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 2-5 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
-  CameraPosition: {x: 0, y: 0, z: 0}
-  CameraRotation: {x: 0, y: 0, z: 0}
+  setCamera: 1
+  CameraPosition: {x: -148.576, y: 3.9490724, z: 28.612446}
+  CameraRotation: {x: 349.9617, y: 295.38416, z: 359.9305}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
     title: Daniel
@@ -29,6 +29,11 @@ MonoBehaviour:
     - You would need to speak to Franklin about that.
     - And ask if he's seen my blueprints anywhere.
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - I didn't know.
+    - Thank you so much for saving my life!
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
     title: Daniel
     lines:
     - Yeah no problem.

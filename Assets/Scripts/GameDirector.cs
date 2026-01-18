@@ -334,6 +334,8 @@ public class GameDirector : MonoBehaviour
         // Buttons
         if (GUI.Button(new Rect(10, 40, 100, 20), "Reload")) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         if (GUI.Button(new Rect(10, 70, 100, 20), "Unfreeze")) player.Freeze(false);
-        if (GUI.Button(new Rect(10, 70, 100, 20), "Quit")) Application.Quit();
+        if (GUI.Button(new Rect(10, 100, 100, 20), "Quit")) Application.Quit();
+        if (GUI.Button(new Rect(10, 130, 100, 20), "Quest Advance")) QuestAdvance();
+        if (GUI.Button(new Rect(10, 160, 100, 20), "Quest Complete")) QuestComplete();
     }
 }

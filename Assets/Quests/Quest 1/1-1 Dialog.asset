@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezePlayer: 1
   setCamera: 1
-  CameraPosition: {x: -141.7934, y: 5.6091433, z: 38.764847}
-  CameraRotation: {x: 7.012967, y: 101.34422, z: -0.00040429836}
+  CameraPosition: {x: -149.3031, y: 5.065476, z: 39.110233}
+  CameraRotation: {x: 6.050279, y: 88.690384, z: 359.97632}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
     title: Ol' Lady

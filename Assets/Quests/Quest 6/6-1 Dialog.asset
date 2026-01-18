@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 6-1 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
-  CameraPosition: {x: 0, y: 0, z: 0}
-  CameraRotation: {x: 0, y: 0, z: 0}
+  setCamera: 1
+  CameraPosition: {x: -157.698, y: 4.1558523, z: 31.083206}
+  CameraRotation: {x: 351.887, y: 86.49411, z: 359.99332}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
     title: Daniel

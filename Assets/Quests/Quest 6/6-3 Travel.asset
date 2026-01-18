@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
   m_Name: 6-3 Travel
   m_EditorClassIdentifier: 
-  objective: 
-  showDistance: 0
-  showWaypoints: 0
-  missForgiveness: 3
-  waypoints: []
-  destination: {x: 0, y: 0, z: 0}
+  objective: Go back to Daniel
+  showDistance: 1
+  missForgiveness: 2
+  destination: {x: -154.57, y: 3.574, z: 28.58}

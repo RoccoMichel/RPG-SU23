@@ -31,7 +31,8 @@ public class QuestGiver : Entity
     {
         if (completed)
         {
-            director.canvasManager.NewMessage(new string[] { "You have already completed all my quests!", }, "Quest-giver");
+            director.player.Freeze(true);
+            director.canvasManager.NewMessage(new string[] { "You have already completed all my quests!", }, identity);
             return;
         }
         else

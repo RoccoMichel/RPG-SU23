@@ -1,15 +1,2 @@
 *Creature AI behaviour
-~Player Animations
-*Water Shader
-~Blimp
-*Decorate Map
-
-*Finish all Quests:
-	+ Introduction Quest, teaching the controls (dialog elements).
-	+ Catch up Quest, find all NPCs on the island (travel/dialog elements)
-	+ Forest Gobbies, kill 15 goblins in the forest (slaughter element) (they only spawn there).
-	~ Blueprint Quest, go to the tower and inside (mini dungeon) find the blueprint item (travel/fetch elements).
-	~ Important Delivery Quest, bring an item to NPC far coast help them from ambush (travel/slaughter/dialog elements).
-	~ Food Basket Quest, Find and bring back several food pick ups to an NPC (diloag/fetch/ elements).
-	+ Break Quest, short dialog and instantly ends, made to end other longer quests (dialog elements).
-	Item Rewards that increases stats for most quests!
+*Remove Item Bug

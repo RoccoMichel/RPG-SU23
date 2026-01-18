@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f569f06997447b048aff09735d9b7500, type: 3}
       propertyPath: m_Name
-      value: Gobby
+      value: Gobby Lv 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f569f06997447b048aff09735d9b7500, type: 3}
       propertyPath: m_Layer
@@ -101,8 +101,8 @@ MonoBehaviour:
   respawn: 1
   lootTable:
   - item: {fileID: 11400000, guid: 91e31368fb45aa947b7bc2480903c451, type: 2}
-    dropChance: 1
-    minMaxAmount: {x: 1, y: 7}
+    dropChance: 0.8
+    minMaxAmount: {x: 1, y: 5}
   healthBarOffset: 1.7
 --- !u!195 &3720913158546212726
 NavMeshAgent:

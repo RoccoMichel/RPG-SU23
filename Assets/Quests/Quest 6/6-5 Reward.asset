@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: 6-5 Reward
   m_EditorClassIdentifier: 
   notification: 1
-  reward: []
+  reward:
+  - item: {fileID: 11400000, guid: 3404e0a54aeff074a810b7278a4d19e4, type: 2}
+    amount: 1

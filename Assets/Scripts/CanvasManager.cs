@@ -7,6 +7,7 @@ using TMPro;
 
 public class CanvasManager : MonoBehaviour
 {
+    [SerializeField] private GameObject playerHealth;
     [HideInInspector] public DialogManager dialog;
     [HideInInspector] public Inventory inventory;
     [HideInInspector] public TMP_Text objectiveDisplay;
@@ -74,6 +75,9 @@ public class CanvasManager : MonoBehaviour
         else inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
 
         player.CameraController.locked = inventory.gameObject.activeSelf;
+        if (objectiveDisplay != null) objectiveDisplay.gameObject.SetActive(!inventory.gameObject.activeSelf);
+        if (playerHealth != null) playerHealth.SetActive(!inventory.gameObject.activeSelf);
+        if (map != null && map.gameObject.activeSelf) map.gameObject.SetActive(false);
     }
     private Inventory InstantiateInventory()
     {

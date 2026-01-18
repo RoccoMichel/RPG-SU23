@@ -13,7 +13,34 @@ MonoBehaviour:
   m_Name: 6-4 Dialog
   m_EditorClassIdentifier: 
   freezePlayer: 1
-  setCamera: 0
-  CameraPosition: {x: 0, y: 0, z: 0}
-  CameraRotation: {x: 0, y: 0, z: 0}
-  conversation: []
+  setCamera: 1
+  CameraPosition: {x: -149.4326, y: 5.335897, z: 27.556398}
+  CameraRotation: {x: 5.500437, y: 292.06982, z: 359.99374}
+  conversation:
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
+    title: Daniel
+    lines:
+    - Finally
+    - Lunch Break!
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - You're going to eat all of that?
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
+    title: Daniel
+    lines:
+    - Watch me!
+  - speakerPortrait: {fileID: 21300000, guid: 9537d94594b9f9045a30fc7ad22a02d4, type: 3}
+    title: Franklin
+    lines:
+    - Easy there!
+    - Let fix up something better with this than raw ingredients.
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
+    title: Daniel
+    lines:
+    - Wow, thanks Franklin!
+    - Here you can have the rest!
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - how kind.

@@ -32,13 +32,14 @@ public class PlayerInventory : MonoBehaviour
             if (slot.item.itemName == name && slot.amount < slot.item.stackSize)
                 results.Add(i);
         }
-
         return results.ToArray();
     }
 
     // ADDING ITEMS
     public void AddItem(Item item, int amount)
     {
+        if (amount <= 0) return;
+
         Director.ReportItem(item);
 
         int[] possibleIndexes = GetSlotIndexesByName(item.itemName);
@@ -98,14 +99,17 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(Item item, int amount, bool notification)
     {
-        AddItem(item, amount);
+        if (amount <= 0) return;
 
+        AddItem(item, amount);
         if (notification) Director.canvasManager.Notification($"+ {amount} {item.itemName}");
     }
 
     // REMOVING ITEMS
     public void RemoveItem(Item item, int amount)
     {
+        if (amount <= 0) return;
+
         GetSlotIndexesByName(item.itemName);
         int[] slots = GetSlotIndexesByName(item.itemName);
         Array.Sort(slots);
@@ -130,18 +134,21 @@ public class PlayerInventory : MonoBehaviour
 
     public void RemoveItem(Item item, int amount, bool notification)
     {
-        RemoveItem(item, amount);
+        if (amount <= 0) return;
 
+        RemoveItem(item, amount);
         if (notification) Director.canvasManager.Notification($"- {amount} {item.itemName}");
     }
 
     public bool TryRemoveItem(Item item, int amount)
     {
+        if (amount <= 0) return false;
+
         int availableAmount = 0;
         int[] slots = GetSlotIndexesByName(item.itemName);
 
         foreach (int i in slots)  availableAmount += Items[i].amount;
-        
+
         // Not enough items to remove in player inventory
         if (availableAmount < amount) return false; 
 
@@ -151,6 +158,8 @@ public class PlayerInventory : MonoBehaviour
 
     public bool TryRemoveItem(Item item, int amount, bool notification)
     {
+        if (amount <= 0) return false;
+
         bool success = TryRemoveItem(item, amount);
 
         if (success && notification) Director.canvasManager.Notification($"- {amount} {item.itemName}");

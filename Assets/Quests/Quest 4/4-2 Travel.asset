@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objective: Go to the tower!
   showDistance: 1
-  showWaypoints: 0
-  missForgiveness: 5
-  waypoints: []
+  missForgiveness: 7
   destination: {x: 90.43, y: 5, z: 73.77}

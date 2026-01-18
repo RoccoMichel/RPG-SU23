@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freezePlayer: 1
   setCamera: 1
-  CameraPosition: {x: -129.3255, y: 4.13983, z: 32.600784}
-  CameraRotation: {x: 0.6185935, y: 187.15086, z: -0.0048957868}
+  CameraPosition: {x: -126.9199, y: 7.1827374, z: 30.193443}
+  CameraRotation: {x: 40.15275, y: 237.9037, z: 0.014820688}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
     title: Robby

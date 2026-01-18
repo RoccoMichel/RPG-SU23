@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7a5239821bf88454b81a24dc3bcf94e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7218a056f1ab87747921c22dfa1c99c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomClamp: {x: 0.5, y: 2}
-  mapScale: 4
+  mapScale: 2
   map: {fileID: 2833114921194384590}
   playerMap: {fileID: 772758340880476354}
 --- !u!114 &279161413678075596

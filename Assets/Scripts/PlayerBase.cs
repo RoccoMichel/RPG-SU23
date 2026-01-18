@@ -130,4 +130,10 @@ public class PlayerBase : Entity
     {
         speed += amount;
     }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        Heal(int.MaxValue);
+    }
 }

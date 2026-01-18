@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objective: Go in the basement
   showDistance: 0
-  showWaypoints: 0
-  missForgiveness: 3
-  waypoints: []
-  destination: {x: 0, y: 0, z: 0}
+  missForgiveness: 4
+  destination: {x: 137.125, y: -17.066212, z: 112.875}

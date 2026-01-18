@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FetchList:
   - type: {fileID: 11400000, guid: ee8f8d5e2dd9079448dc255484b65ea7, type: 2}
-    amount: 5
+    amount: 8
   - type: {fileID: 11400000, guid: a8f3608e65e768545824a90ea05d4981, type: 2}
-    amount: 2
-  - type: {fileID: 11400000, guid: 058b98f640fcdc24b935eadc98c86ce5, type: 2}
     amount: 4
+  - type: {fileID: 11400000, guid: 058b98f640fcdc24b935eadc98c86ce5, type: 2}
+    amount: 5
