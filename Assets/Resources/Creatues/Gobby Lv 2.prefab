@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2507906936511390050, guid: b0d5d32fc12efd54eab716fb02ece574, type: 3}
+  - {fileID: 2100000, guid: 39bbf09db2c161c4ba3af0be381ce073, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2507906936511390050, guid: b0d5d32fc12efd54eab716fb02ece574, type: 3}
+  - {fileID: 2100000, guid: 39bbf09db2c161c4ba3af0be381ce073, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
       propertyPath: speed
-      value: 3
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
       propertyPath: health
@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
       propertyPath: strength
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7521327348085315884, guid: 95564cfa9d9678f48b0fbd6ee1bc5111, type: 3}
       propertyPath: maxHealth

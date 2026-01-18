@@ -1,6 +1,7 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
@@ -35,11 +36,13 @@ public class Inventory : MonoBehaviour
 
     public void RefreshInventory()
     {
-        for (int i = 0; i < playerInventory.Items.Count; i++)
-        {
-            if (i >= inventorySlots.Count) break;
+        for (int i = 0; i < inventorySlots.Count; i++) inventorySlots[i].Clear();
 
-            inventorySlots[i].Set(playerInventory.Items[i], true);
+        for (int j = 0; j < playerInventory.Items.Count; j++)
+        {
+            if (j >= inventorySlots.Count) break;
+
+            inventorySlots[j].Set(playerInventory.Items[j], true);
         }
     }
 

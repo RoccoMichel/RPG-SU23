@@ -693,7 +693,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   immortal: 0
-  strength: 1
+  strength: 2
   defense: 1
   speed: 5
   canAttack: 1
@@ -732,10 +732,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4457166a6c627234a926d246880f1308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationSpeed: 4
-  decelerationSpeed: 1
+  accelerationSpeed: 20
+  decelerationSpeed: 2
   groundCheck: {fileID: 3733362837497381969}
   groundDistance: 0.4
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!143 &7611344689784701336
 CharacterController:
   m_ObjectHideFlags: 0

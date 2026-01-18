@@ -91,7 +91,11 @@ public class PlayerBase : Entity
     public override void Damage(float amount)
     {
         amount -= (amount / 100 * defense); // reduce damage depending on defense 
-        base.Damage(amount);
+        if (immortal) return;
+
+        health = Mathf.Clamp(health - Mathf.Abs(amount), 0, maxHealth);
+        if (health <= 0) Die("You died!");
+
         Instantiate(Resources.Load("Effects/Basic Damage"), transform.position, Quaternion.identity);
     }
     public override void Die()
@@ -101,6 +105,7 @@ public class PlayerBase : Entity
         StartCoroutine(Freeze(false, 1));
         transform.localPosition = spawnPoint;
         GameDirector.Instance.QuestFail();
+        health = maxHealth;
     }
 
     public void Die(string deathMessage)

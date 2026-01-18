@@ -23,6 +23,14 @@ public class ItemSlot : MonoBehaviour
         tooltip = hasTooltip;
     }
 
+    public void Clear()
+    {
+        tooltip = false;
+        item = null;
+        icon.sprite = Resources.Load<Sprite>("transparent");
+        counter.text = string.Empty;
+    }
+
     public void UpdateTooltip()
     {
         if (!tooltip || item == null) return;

@@ -56,10 +56,12 @@ MonoBehaviour:
   strength: 1
   defense: 0
   speed: 1
+  respawn: 1
   lootTable:
   - item: {fileID: 11400000, guid: 91e31368fb45aa947b7bc2480903c451, type: 2}
     dropChance: 1
     minMaxAmount: {x: 1, y: 5}
+  healthBarOffset: 0
 --- !u!195 &4738282707915651125
 NavMeshAgent:
   m_ObjectHideFlags: 0

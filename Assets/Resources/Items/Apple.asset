@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   itemName: Apple
-  description: Super Exciting!
+  description: Nice and juicy!
   stackSize: 100
   icon: {fileID: 21300000, guid: 1baa67951941430499ee298c755e4d2d, type: 3}
   type: 1

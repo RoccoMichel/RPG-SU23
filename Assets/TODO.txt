@@ -1,2 +1,3 @@
-*Creature AI behaviour
-*Remove Item Bug
+*Find a nice font
+*Bug Test
+*Map final touches

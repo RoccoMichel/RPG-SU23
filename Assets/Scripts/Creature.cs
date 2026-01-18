@@ -17,7 +17,7 @@ public class Creature : Entity
     public List<LootItem> lootTable = new();
 
     [SerializeField] private float healthBarOffset;
-    private Vector3 spawnPoint;
+    internal Vector3 spawnPoint;
     private float distanceToPlayer;
     private HealthBar healthBar;
     private GameDirector director;
@@ -64,7 +64,7 @@ public class Creature : Entity
 
     public override void Damage(float amount)
     {
-        amount = amount - (amount / 100 * defense); // reduce damage depending on defense 
+        amount -= (amount / 100 * defense); // reduce damage depending on defense 
         if (healthBar == null) healthBar = InstantiateHealthBar();
         healthBar.Set(0, maxHealth, health);
         base.Damage(amount);
@@ -78,7 +78,7 @@ public class Creature : Entity
 
     protected virtual HealthBar InstantiateHealthBar()
     {
-        Vector3 offset = new Vector3(0, healthBarOffset, 0);
+        Vector3 offset = new (0, healthBarOffset, 0);
         HealthBar newHealthBar = Instantiate(Resources.Load("HealthBar"), transform.position + offset, Quaternion.identity, transform).GetComponent<HealthBar>();
         newHealthBar.Set(0, maxHealth, health, level, identity);
         return newHealthBar;
@@ -102,7 +102,6 @@ public class Creature : Entity
             transform.position = new Vector3(0, -1234, 0);
 
             return; // skip base.Die()
-
         }
 
         base.Die();

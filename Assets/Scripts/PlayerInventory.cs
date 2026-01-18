@@ -14,14 +14,14 @@ public class PlayerInventory : MonoBehaviour
         public int amount;
     }
     
-    public void AddAmountAtIndex(int index, int amount)
+    private void AddAmountAtIndex(int index, int amount)
     {
         var slot = Items[index];
         slot.amount += amount;
         Items[index] = slot;
     }
 
-    public int[] GetSlotIndexesByName(string name)
+    private int[] GetSlotIndexesByName(string name, bool includeFullStacks)
     {
         List<int> results = new();
 
@@ -29,8 +29,11 @@ public class PlayerInventory : MonoBehaviour
         {
             ItemSlot slot = Items[i];
 
-            if (slot.item.itemName == name && slot.amount < slot.item.stackSize)
-                results.Add(i);
+            if (slot.item.itemName != name || // Name mismatch
+                !includeFullStacks && slot.amount >= slot.item.stackSize) // Full stack exclusion | bool depended
+                continue; // Go to next item
+
+            results.Add(i);
         }
         return results.ToArray();
     }
@@ -42,7 +45,7 @@ public class PlayerInventory : MonoBehaviour
 
         Director.ReportItem(item);
 
-        int[] possibleIndexes = GetSlotIndexesByName(item.itemName);
+        int[] possibleIndexes = GetSlotIndexesByName(item.itemName, false);
         List<int> changes = new();
 
         // Increase amount on existing itemSlot(s)
@@ -110,8 +113,8 @@ public class PlayerInventory : MonoBehaviour
     {
         if (amount <= 0) return;
 
-        GetSlotIndexesByName(item.itemName);
-        int[] slots = GetSlotIndexesByName(item.itemName);
+        List<int> changes = new();
+        int[] slots = GetSlotIndexesByName(item.itemName, true);
         Array.Sort(slots);
         Array.Reverse(slots);
 
@@ -121,15 +124,21 @@ public class PlayerInventory : MonoBehaviour
 
             if (Items[index].amount > amount)
             {
+                if (amount > 0) changes.Add(index);
                 AddAmountAtIndex(index, -amount);
                 break;
             }
             else
             {
+                changes.Add(index);
                 amount -= Items[index].amount;
                 Items.RemoveAt(index);
             }
         }
+
+        // Refresh visual changes on effected slots
+        try { Director.canvasManager.inventory.RefreshInventory(); }
+        catch { }
     }
 
     public void RemoveItem(Item item, int amount, bool notification)
@@ -145,7 +154,7 @@ public class PlayerInventory : MonoBehaviour
         if (amount <= 0) return false;
 
         int availableAmount = 0;
-        int[] slots = GetSlotIndexesByName(item.itemName);
+        int[] slots = GetSlotIndexesByName(item.itemName, true);
 
         foreach (int i in slots)  availableAmount += Items[i].amount;
 

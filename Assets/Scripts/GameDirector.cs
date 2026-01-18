@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class GameDirector : MonoBehaviour
 {
     public bool debug;
+    public int targetFramerate = 60;
     public static GameDirector Instance;
     private InputAction debugAction;
 
@@ -34,6 +35,8 @@ public class GameDirector : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+
         if (Instance == null ) Instance = this;
 
         try { player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBase>(); }
@@ -57,6 +60,7 @@ public class GameDirector : MonoBehaviour
 
     private void Update()
     {
+        if (Application.targetFrameRate != targetFramerate) Application.targetFrameRate = targetFramerate;
         if (debugAction.WasPressedThisFrame()) debug = !debug;
     }
 
@@ -168,6 +172,7 @@ public class GameDirector : MonoBehaviour
         Camera.main.GetComponent<CameraController>().Reset();
 
         if (!InQuest()) return;
+        StopCoroutine(nameof(TravelObjective));
         canvasManager.ClearObjective();
 
         questStage++;
@@ -179,6 +184,7 @@ public class GameDirector : MonoBehaviour
     public void QuestComplete()
     {
         canvasManager.NewAlert("QUEST COMPLETE", CanvasManager.AlertStyles.Quest);
+        StopCoroutine(nameof(TravelObjective));
         canvasManager.ClearObjective();
 
         if (ActiveQuest.mainQuest) blimp.AdvanceStage();
@@ -193,6 +199,7 @@ public class GameDirector : MonoBehaviour
         if (!InQuest()) return;
 
         canvasManager.NewAlert("QUEST FAILED", CanvasManager.AlertStyles.Quest);
+        StopCoroutine(nameof(TravelObjective));
         canvasManager.ClearObjective();
 
         if (questGiver != null) questGiver.QuestCancel();
