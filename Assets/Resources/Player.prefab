@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4457166a6c627234a926d246880f1308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationSpeed: 20
+  accelerationSpeed: 100
   decelerationSpeed: 2
   groundCheck: {fileID: 3733362837497381969}
   groundDistance: 0.4

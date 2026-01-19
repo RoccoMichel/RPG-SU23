@@ -102,7 +102,7 @@ public class EnemyAI : MonoBehaviour
                     else animator.Play("attack-kick-right");
 
                     player.GetComponent<PlayerBase>().Damage(creature.strength);
-                    nextAttackTime = Time.time + Random.Range(1, 4f);
+                    nextAttackTime = Time.time + Random.Range(0.5f, 2f);
                     aiState = AiStates.Chase;
                     
                     break;
