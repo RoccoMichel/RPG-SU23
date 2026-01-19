@@ -8,7 +8,7 @@ public class Item : ScriptableObject
     public int stackSize = 100;
     public Sprite icon;
     public Types type;
-    [Tooltip("The effect of the item type (i.e. damage, heal, defense, ect...)")]
+    [Tooltip("The effect of the item type (i.e. damage, heal, defense, etc...)")]
     public float modifier;
 
     public enum Types { Regular, Food, Weapon, Armor }

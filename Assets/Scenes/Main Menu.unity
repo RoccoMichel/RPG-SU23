@@ -1056,8 +1056,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Stranded Blimp
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 00af1bbbf172ee444b7a089d2111c80a, type: 2}
+  m_sharedMaterial: {fileID: -2967716538553081715, guid: 00af1bbbf172ee444b7a089d2111c80a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

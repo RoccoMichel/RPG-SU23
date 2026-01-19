@@ -1,3 +1,2 @@
-*Find a nice font
-*Bug Test
-*Map final touches
+*Add more trees
+*Final Build Settings	

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196a3d32d69007c4e8e48ed40e5b980e, type: 3}
   m_Name: Blueprints
   m_EditorClassIdentifier: 
-  itemName: Blueprins
+  itemName: Blueprints
   description: 'Daniels great plans for our ticket our of here!
 
     It is unreadable
