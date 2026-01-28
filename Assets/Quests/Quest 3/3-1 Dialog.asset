@@ -18,7 +18,7 @@ MonoBehaviour:
   CameraRotation: {x: 36.92125, y: 113.98877, z: 359.98846}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
-    title: Concerned Lumberjack
+    title: Robby
     lines:
     - Hey can you spare a moment?
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
@@ -26,14 +26,12 @@ MonoBehaviour:
     lines:
     - Depends, what's up?
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
-    title: Concerned Lumberjack
+    title: Robby
     lines:
-    - I am responsibel for getting all the timber we need to built this ship.
-    - But there's a bunch of gobbies stalking the forest.
-    - It is just to dangerous, and my axe is stricly for Trees only.
-    - If you could use that weapon of yours and clear the forest up on that hill
-      I'd be delighted!
-    - I'm Robby by the way.
+    - I am responsible for getting all the timber we need to get this blimp built.
+    - But there's a bunch of gobbies roaming the forest.
+    - It is just too dangerous, and my axe is strictly for trees only.
+    - If you could use those fists of yours and clear the forest up, I'd be delighted!
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
@@ -42,3 +40,6 @@ MonoBehaviour:
     title: Robby
     lines:
     - Thanks!
+    - And be careful!
+    - If you get seriously hurt you should heal up with some food!
+    - Franklin has a bunch beside him.

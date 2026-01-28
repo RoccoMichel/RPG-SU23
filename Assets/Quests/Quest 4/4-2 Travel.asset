@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
   m_Name: 4-2 Travel
   m_EditorClassIdentifier: 
-  objective: Go to the tower!
+  objective: Go to the tower
   showDistance: 1
   missForgiveness: 7
   destination: {x: 90.43, y: 5, z: 73.77}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Important Item
   m_EditorClassIdentifier: 
   itemName: IMPORTANT ITEM
-  description: Very Secret
+  description: A mysterious locked capsule, only the power of brotherhood can unlock
+    it.
   stackSize: 1
   icon: {fileID: 21300000, guid: 76d1cd185adb2cc409ff2fe4c0a208e2, type: 3}
   type: 0

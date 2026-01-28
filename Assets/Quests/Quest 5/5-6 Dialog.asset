@@ -20,12 +20,12 @@ MonoBehaviour:
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
     title: Bobby
     lines:
-    - Wow your strong
-    - Must be one of Robby's
-    - What are you doing over here
+    - You're a lifesaver!
+    - What luck you came passing by!
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
+    - Actually your brother send me to you.
     - I have a delievery for you
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
     title: Robby

@@ -25,11 +25,12 @@ MonoBehaviour:
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
-    - What do you want me to do?
+    - I hate to disappoint.
+    - But I am not really blimp scientist you see.
   - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
     title: Ol' Lady
     lines:
-    - We could use a helping hand.
-    - Why don't you start with Robby.
+    - That's ok, we already have one.
+    - Now why don't you start with Robby.
     - He and his brother are in charge of resource gathering.
     - Just walk to him, you can ask him for jobs AFTER you have talked to everyone!

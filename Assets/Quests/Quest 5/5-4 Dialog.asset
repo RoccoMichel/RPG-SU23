@@ -21,7 +21,7 @@ MonoBehaviour:
     title: Bobby
     lines:
     - Help me!
-    - I have nothing to defend myself.
+    - These gobbies just ambushed my camp!
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:

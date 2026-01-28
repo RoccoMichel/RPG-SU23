@@ -31,19 +31,12 @@ MonoBehaviour:
     title: Ol' Lady
     lines:
     - Well done!
-  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
-    title: YOU
-    lines:
-    - I am so confused
-  - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
-    title: Ol' Lady
-    lines:
-    - We are trying to build a blimp here.
+    - So... we are trying to build a blimp here.
     - And we need your help!
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
-    - Sure...
+    - What do you want me to do?
   - speakerPortrait: {fileID: 21300000, guid: a467deef09de4c14cb9bdef9048143e2, type: 3}
     title: Ol' Lady
     lines:

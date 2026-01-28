@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sturdy Armor
   m_EditorClassIdentifier: 
   itemName: Sturdy Armor
-  description: 'Makes you feel like a tank!
+  description: 'Makes you feel like an absolute unit!
 
     + 10 Defense'
   stackSize: 1

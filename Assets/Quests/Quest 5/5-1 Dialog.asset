@@ -20,8 +20,8 @@ MonoBehaviour:
   - speakerPortrait: {fileID: 21300000, guid: 4cd199128f81245408fb6d9455dc82b5, type: 3}
     title: Robby
     lines:
-    - Please deliever this important super secret item.
-    - To my twin brother, Bobby.
+    - I need you to deliver this important super secret item.
+    - It's for my twin brother, Bobby.
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: Robby
     lines:

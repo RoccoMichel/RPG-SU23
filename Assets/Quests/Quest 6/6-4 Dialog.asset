@@ -34,7 +34,7 @@ MonoBehaviour:
     title: Franklin
     lines:
     - Easy there!
-    - Let fix up something better with this than raw ingredients.
+    - How about we fix these raw ingredients into a real dish?
   - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
     title: Daniel
     lines:
@@ -43,4 +43,4 @@ MonoBehaviour:
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
-    - how kind.
+    - How kind.

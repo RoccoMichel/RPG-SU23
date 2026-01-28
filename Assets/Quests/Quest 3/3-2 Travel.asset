@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9522816472c720748ac0de6e8270edff, type: 3}
   m_Name: 3-2 Travel
   m_EditorClassIdentifier: 
-  objective: Make your way to the Light Forest
+  objective: Make your way to the Forest
   showDistance: 1
   missForgiveness: 20
   destination: {x: -23, y: 6, z: 40}

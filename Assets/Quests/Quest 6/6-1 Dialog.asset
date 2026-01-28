@@ -20,6 +20,28 @@ MonoBehaviour:
   - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
     title: Daniel
     lines:
-    - 'I am so hunry.
-
-      Please find me some food!'
+    - Man, I'm starving!
+    - You don't happen to have seen any food in that basement did you?
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - ...
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
+    title: Daniel
+    lines:
+    - Doesn't matter, it's probably all expired already.
+    - I need some fresh food anyways.
+    - I remember seeing some apples, corn and carrots on the island.
+    - If you could collect some it would be very kind of you.
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - Where am I even supposed to look?
+  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
+    title: Daniel
+    lines:
+    - Anywhere, everywhere!
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - I'll see what I can do!

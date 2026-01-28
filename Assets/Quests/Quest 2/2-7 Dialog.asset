@@ -25,7 +25,7 @@ MonoBehaviour:
     title: YOU
     lines:
     - Yeah, he has.
-    - He told me I should come to you if I want to cancel a quest.
+    - He told me I should come to you if I need a break.
     - He also asked if you might have seen his blueprints?
   - speakerPortrait: {fileID: 21300000, guid: 9537d94594b9f9045a30fc7ad22a02d4, type: 3}
     title: Franklin
@@ -33,6 +33,7 @@ MonoBehaviour:
     - I don't know anything about any blueprints.
     - You should get back to him about that.
     - But that can wait, Daniel needs a break anyways!
+    - And if you ever need to stop what ever you are doing you can come to me!
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:

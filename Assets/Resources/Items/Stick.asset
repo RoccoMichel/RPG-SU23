@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stick
   m_EditorClassIdentifier: 
   itemName: Wooden Stick
-  description: 'Solid stick, made for a good smaking
+  description: 'Solid stick, made for a good smakin''
 
     +1 Strength'
   stackSize: 1

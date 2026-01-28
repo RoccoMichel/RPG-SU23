@@ -23,11 +23,6 @@ MonoBehaviour:
     - Oh it's you.
     - I'm am the one that saw you get washed up.
     - Glad to see your doing well.
-  - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
-    title: Daniel
-    lines:
-    - You would need to speak to Franklin about that.
-    - And ask if he's seen my blueprints anywhere.
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
@@ -37,9 +32,9 @@ MonoBehaviour:
     title: Daniel
     lines:
     - Yeah no problem.
-    - Finding survivers is one of the many things I do around here.
+    - Finding survivors is one of the many things I do around here.
     - Outside of managing, planning, testing and ...
-    - But luckly now we have you to help us with that.
+    - But luckily now we have you to help us with that.
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
@@ -49,6 +44,8 @@ MonoBehaviour:
     title: Daniel
     lines:
     - You would need to speak to Franklin about that.
-    - But he understands, he's never told to keep working against my will.
-    - Go speak to him next
-    - And ask if he's seen my blueprints anywhere.
+    - Oh, and ask if he's seen my blueprints anywhere.
+  - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
+    title: YOU
+    lines:
+    - Sure thing!

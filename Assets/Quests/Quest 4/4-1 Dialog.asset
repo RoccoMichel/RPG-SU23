@@ -18,17 +18,16 @@ MonoBehaviour:
   CameraRotation: {x: 81.54316, y: 231.526, z: 359.8173}
   conversation:
   - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
-    title: Smart Guy
+    title: Daniel
     lines:
-    - forgor ma blueprints in the workshop
-    - but now there's the bloody gobbies are all over it
+    - Gosh darn I've seem to have lost my blueprints back in the shop.
+    - That place is probably infested with all those bloody gobbies again!
   - speakerPortrait: {fileID: 21300000, guid: 157a7efd3f394e84ab7fc5b8c6b95fcd, type: 3}
     title: YOU
     lines:
     - And you want me to get them for you?
-    - I don't even know your name man!
   - speakerPortrait: {fileID: 21300000, guid: 015d2eea74a2eda439d794ffeed7f2e2, type: 3}
     title: Daniel
     lines:
-    - Daniel
-    - Now make your way to the tower, it's somewhere in the basement!
+    - Yes, please.
+    - It's in the basement of that big tower in the distance.

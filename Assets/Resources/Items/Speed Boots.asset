@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Speed Boots
   m_EditorClassIdentifier: 
   itemName: Speed Boots
-  description: 'Makes you very swifty
+  description: 'Feels like your walking on clouds!
 
     +1 Speed'
   stackSize: 1

@@ -73,8 +73,8 @@ public class CanvasManager : MonoBehaviour
     {
         if (inventory == null) inventory = InstantiateInventory();
         else inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
+        player.Freeze(inventory.gameObject.activeSelf);
 
-        player.CameraController.locked = inventory.gameObject.activeSelf;
         if (objectiveDisplay != null) objectiveDisplay.gameObject.SetActive(!inventory.gameObject.activeSelf);
         if (playerHealth != null) playerHealth.SetActive(!inventory.gameObject.activeSelf);
         if (map != null && map.gameObject.activeSelf) map.gameObject.SetActive(false);
@@ -89,9 +89,10 @@ public class CanvasManager : MonoBehaviour
     public void ToggleMap()
     {
         if (map == null) map = InstantiateMap();
-
         map.gameObject.SetActive(!map.gameObject.activeSelf);
         player.Freeze(map.gameObject.activeSelf);
+
+        if (inventory != null && inventory.gameObject.activeSelf) inventory.gameObject.SetActive(false);
     }
     private Map InstantiateMap()
     {

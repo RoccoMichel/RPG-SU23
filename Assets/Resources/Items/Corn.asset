@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Corn
   m_EditorClassIdentifier: 
   itemName: Corn
-  description: It's popcorn of the pre-poped variety.
+  description: It's popcorn of the pre-popped variety.
   stackSize: 100
   icon: {fileID: 21300000, guid: 59ce5e24c1318c640911234e87abfa90, type: 3}
   type: 0
