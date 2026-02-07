@@ -109,8 +109,9 @@ public class GameDirector : MonoBehaviour
                 if (dataTravel.objective != string.Empty)
                 {
                     canvasManager.SetObjective(dataTravel.objective, true);
-                    StartCoroutine(TravelObjective(dataTravel.objective, questStage));
                 }
+                
+                if (dataTravel.showDistance) StartCoroutine(TravelObjective(dataTravel.objective, questStage));
 
                 break;
 
