@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: 2-4 Travel
   m_EditorClassIdentifier: 
   objective: Talk to Daniel
-  showDistance: 0
-  showWaypoints: 0
+  showDistance: 1
   missForgiveness: 2
-  waypoints: []
   destination: {x: -154.57, y: 3.574, z: 28.58}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 6-3 Travel
   m_EditorClassIdentifier: 
   objective: Go back to Daniel
-  showDistance: 1
+  showDistance: 0
   missForgiveness: 2
   destination: {x: -154.57, y: 3.574, z: 28.58}

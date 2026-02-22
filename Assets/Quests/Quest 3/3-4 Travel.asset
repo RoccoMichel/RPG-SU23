@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: 3-4 Travel
   m_EditorClassIdentifier: 
   objective: Go back to Robby
-  showDistance: 1
-  showWaypoints: 0
+  showDistance: 0
   missForgiveness: 1
-  waypoints: []
   destination: {x: -129.9265, y: 3.157, z: 29.168554}
